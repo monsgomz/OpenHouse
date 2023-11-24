@@ -35,6 +35,9 @@
 		C20110012B112D4C000C61DF = {
 			isa = PBXGroup;
 			children = (
+				C201101D2B112D70000C61DF /* Model */,
+				C201101C2B112D66000C61DF /* ModelView */,
+				C201101B2B112D61000C61DF /* View */,
 				C201100C2B112D4C000C61DF /* gome0145-mad9137-final-project */,
 				C201100B2B112D4C000C61DF /* Products */,
 			);
@@ -65,6 +68,27 @@
 				C20110142B112D4E000C61DF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C201101B2B112D61000C61DF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C201101C2B112D66000C61DF /* ModelView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModelView;
+			sourceTree = "<group>";
+		};
+		C201101D2B112D70000C61DF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
