@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "86A9FD3E-A2D3-49E4-9208-7FBAE7AF95ED"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B6255CD3-D610-49C1-810C-994054E8DFFF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FinalProject/ModelView/BuildingModelView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "load(_:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "B6255CD3-D610-49C1-810C-994054E8DFFF - 43548761a5fd122c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FinalProject.load&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(Swift.String) -&gt; &#x3c4;_0_0"
+                  moduleName = "FinalProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/monzgomz/Documents/Semestre3/iOSClass/FinalProjectX/FinalProject/ModelView/BuildingModelView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "368">
+               </Location>
+               <Location
+                  uuid = "B6255CD3-D610-49C1-810C-994054E8DFFF - 43548761a5fd122c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FinalProject.load&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(Swift.String) -&gt; &#x3c4;_0_0"
+                  moduleName = "FinalProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/monzgomz/Documents/Semestre3/iOSClass/FinalProjectX/FinalProject/ModelView/BuildingModelView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "372">
+               </Location>
+               <Location
+                  uuid = "B6255CD3-D610-49C1-810C-994054E8DFFF - f1067e6cc6da2669"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FinalProject.load(Swift.String) -&gt; Swift.Array&lt;FinalProject.BuildingModel&gt;"
+                  moduleName = "FinalProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/monzgomz/Documents/Semestre3/iOSClass/FinalProjectX/FinalProject/ModelView/BuildingModelView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "344">
+               </Location>
+               <Location
+                  uuid = "B6255CD3-D610-49C1-810C-994054E8DFFF - 2a7fd85b343f11f1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FinalProject.load(Swift.String) -&gt; Swift.Array&lt;FinalProject.BuildingData&gt;"
+                  moduleName = "FinalProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/monzgomz/Documents/Semestre3/iOSClass/FinalProjectX/FinalProject/ModelView/BuildingModelView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "344">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

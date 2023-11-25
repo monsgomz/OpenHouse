@@ -8,15 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+	@StateObject var modelData = BuildingModelView()
+	
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+			
+			Text("\(modelData.buildingData.count)")
+			ForEach(modelData.buildingData[0].buildings, id: \.buildingId){ data in
+				Text(data.name)
+				
+			}
+				
+			
         }
         .padding()
+		.environmentObject(modelData)
+		
     }
+	
 }
 
 #Preview {
