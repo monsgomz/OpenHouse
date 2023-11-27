@@ -8,21 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+	
 	@StateObject var modelData = BuildingModelView()
 	
     var body: some View {
-        VStack {
-			
-			Text("\(modelData.buildingData.count)")
-			ForEach(modelData.buildingData[0].buildings, id: \.buildingId){ data in
-				Text(data.name)
-				
-			}
-				
-			
-        }
-        .padding()
+		TabView{
+			HomeView()
+				.tabItem {
+					Label("Home", systemImage: "house")
+				}
+			MapView()
+				.tabItem {
+					Label("Map", systemImage: "map")
+				}
+
+		}
 		.environmentObject(modelData)
+		.onAppear{
+			modelData.checkLocactionEnabled()
+			modelData.setArrayLocation()
+		}
 		
     }
 	

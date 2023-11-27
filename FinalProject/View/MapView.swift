@@ -6,13 +6,26 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct MapView: View {
+	
+	@EnvironmentObject var modelData: BuildingModelView
+	@State var searchText = ""
+	
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+	
+		VStack{
+			Map(coordinateRegion: $modelData.region, showsUserLocation: true, annotationItems: modelData.locations){ location in
+				MapAnnotation(coordinate: location.coordinate) {
+					Circle()
+						.stroke(.red, lineWidth: 3)
+						.frame(width: 44, height: 44)
+				}
+			}
+			.accentColor(.pink)
+			
+		}
+		.searchable(text: $searchText)
     }
-}
-
-#Preview {
-    MapView()
 }

@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct HomeView: View {
+	@EnvironmentObject var modelData: BuildingModelView
+	
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+		ScrollView {
+			LazyVStack{
+				ForEach(modelData.buildingData[0].buildings, id: \.buildingId){ data in
+					RowHomeView(building: data)
+					
+				}
+			}
+			.padding()
+		}
     }
 }
 
 #Preview {
-    HomeView()
+    HomeView().environmentObject(BuildingModelView())
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct BuildingData: Codable {
 	let language: String
@@ -45,4 +46,10 @@ class BuildingModel: Codable {
 		var isOpenSaturday: Bool
 		var isOpenSunday: Bool
 
+}
+
+struct Location: Identifiable {
+	let id = UUID()
+	let name: String
+	let coordinate: CLLocationCoordinate2D
 }

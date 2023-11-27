@@ -7,10 +7,61 @@
 
 import Foundation
 import SwiftUI
+import MapKit
 
-class BuildingModelView: ObservableObject {
+class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 	
-	@Published var buildingData: [BuildingData] = load("buildings")
+	@Published var buildingData: [BuildingData] = FinalProject.load("buildings")
+	@Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 45.424440220535125, longitude:  -75.70094318813211), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+	@Published var locations: [Location] = []
+	
+	
+	var locationManager: CLLocationManager?
+	
+	/// Function to check the location enabled
+	func checkLocactionEnabled(){
+		if CLLocationManager.locationServicesEnabled(){
+			locationManager = CLLocationManager()
+			locationManager?.delegate = self
+			
+		} else{
+			print("Show an alert")
+		}
+	}
+	
+	private func checkLocationAuthorization(){
+		guard let locationManager = locationManager else { return }
+		
+		switch locationManager.authorizationStatus {
+			
+		case .notDetermined:
+			// ask for permision
+			locationManager.requestWhenInUseAuthorization()
+		case .restricted:
+			print("Your location is restricted") //alert
+		case .denied:
+			print("You have denied the location") //alert
+		case .authorizedAlways, .authorizedWhenInUse:
+			region = MKCoordinateRegion(center: locationManager.location!.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+		@unknown default:
+			break
+		}
+	}
+	
+	/// To know when de user gives authorization
+	func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+		checkLocationAuthorization()
+	}
+	
+	func setArrayLocation(){
+	
+		for building in  buildingData[0].buildings{
+				let newLocation = CLLocationCoordinate2D(latitude: building.latitude, longitude: building.longitude)
+				let location = Location(name: building.name, coordinate: newLocation)
+				locations.append(location)
+			}
+		
+	}
 	
 }
 
