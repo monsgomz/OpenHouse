@@ -8,11 +8,30 @@
 import SwiftUI
 
 struct SavedView: View {
+	@EnvironmentObject var modelData: BuildingModelView
+	
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+		var favoritesArray = modelData.favoritesFilter(favorite: modelData.favoelements)
+		NavigationStack{
+			
+			List(favoritesArray, id: \.self){element in
+				Text(element.name)
+				
+			}.overlay{
+				if favoritesArray.isEmpty {
+					ContentUnavailableView{
+						Label("No Favorites", systemImage: "tray.fill")
+					} description: {
+						Text("Saved houses will appear here.")
+					}
+				}
+			}
+			.navigationTitle("Favorites")
+			
+		}
     }
 }
 
 #Preview {
-    SavedView()
+    SavedView().environmentObject(BuildingModelView())
 }

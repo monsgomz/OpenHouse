@@ -19,8 +19,9 @@
 		C20110302B124C7B000C61DF /* SavedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C201102F2B124C7B000C61DF /* SavedView.swift */; };
 		C20110322B124C86000C61DF /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20110312B124C86000C61DF /* MoreView.swift */; };
 		C20110582B12750C000C61DF /* buildings.json in Resources */ = {isa = PBXBuildFile; fileRef = C20110572B12750C000C61DF /* buildings.json */; };
-		C279FD582B13AF4D0093A662 /* RowHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C279FD572B13AF4D0093A662 /* RowHomeView.swift */; };
+		C279FD582B13AF4D0093A662 /* CardHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C279FD572B13AF4D0093A662 /* CardHomeView.swift */; };
 		C279FD5A2B142A6F0093A662 /* FavoriteButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C279FD592B142A6F0093A662 /* FavoriteButtonView.swift */; };
+		C279FD5C2B14DC6B0093A662 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C279FD5B2B14DC6B0093A662 /* DetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,8 +38,9 @@
 		C201102F2B124C7B000C61DF /* SavedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedView.swift; sourceTree = "<group>"; };
 		C20110312B124C86000C61DF /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		C20110572B12750C000C61DF /* buildings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = buildings.json; sourceTree = "<group>"; };
-		C279FD572B13AF4D0093A662 /* RowHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowHomeView.swift; sourceTree = "<group>"; };
+		C279FD572B13AF4D0093A662 /* CardHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHomeView.swift; sourceTree = "<group>"; };
 		C279FD592B142A6F0093A662 /* FavoriteButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButtonView.swift; sourceTree = "<group>"; };
+		C279FD5B2B14DC6B0093A662 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,12 +97,13 @@
 			isa = PBXGroup;
 			children = (
 				C20110292B124C4B000C61DF /* HomeView.swift */,
-				C279FD572B13AF4D0093A662 /* RowHomeView.swift */,
+				C279FD572B13AF4D0093A662 /* CardHomeView.swift */,
 				C201102B2B124C61000C61DF /* MapView.swift */,
 				C201102F2B124C7B000C61DF /* SavedView.swift */,
 				C20110312B124C86000C61DF /* MoreView.swift */,
 				C201100F2B112D4C000C61DF /* ContentView.swift */,
 				C279FD592B142A6F0093A662 /* FavoriteButtonView.swift */,
+				C279FD5B2B14DC6B0093A662 /* DetailsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -207,7 +210,8 @@
 				C20110302B124C7B000C61DF /* SavedView.swift in Sources */,
 				C201101F2B112DCF000C61DF /* BuildingModel.swift in Sources */,
 				C201102A2B124C4B000C61DF /* HomeView.swift in Sources */,
-				C279FD582B13AF4D0093A662 /* RowHomeView.swift in Sources */,
+				C279FD5C2B14DC6B0093A662 /* DetailsView.swift in Sources */,
+				C279FD582B13AF4D0093A662 /* CardHomeView.swift in Sources */,
 				C201100E2B112D4C000C61DF /* finalProjectApp.swift in Sources */,
 				C279FD5A2B142A6F0093A662 /* FavoriteButtonView.swift in Sources */,
 				C20110322B124C86000C61DF /* MoreView.swift in Sources */,

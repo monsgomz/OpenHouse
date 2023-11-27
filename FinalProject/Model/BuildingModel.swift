@@ -16,8 +16,13 @@ struct BuildingData: Codable {
 }
 
 
-class BuildingModel: Codable {
-
+class BuildingModel: Codable, Hashable{
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(buildingId)
+	}
+	static func == (lhs: BuildingModel, rhs: BuildingModel) -> Bool {
+		return lhs.buildingId == rhs.buildingId
+	}
 		var buildingId: Int
 		var name: String
 		var isNew: Bool

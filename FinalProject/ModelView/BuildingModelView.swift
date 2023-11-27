@@ -75,6 +75,12 @@ class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 		
 		return distanceFromMe / 1000.0
 	}
+	func favoritesFilter(favorite: [Int]) -> [BuildingModel]{
+		return buildingData[0].buildings.filter{ element in
+			favorite.contains(element.buildingId)
+		}
+			
+	}
 	
 }
 

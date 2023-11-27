@@ -8,7 +8,7 @@
 import SwiftUI
 import MapKit
 
-struct RowHomeView: View {
+struct CardHomeView: View {
 	var building: BuildingModel
 	@EnvironmentObject var modelData: BuildingModelView
 	

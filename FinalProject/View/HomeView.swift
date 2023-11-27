@@ -14,10 +14,15 @@ struct HomeView: View {
 		NavigationStack{
 			ScrollView {
 				LazyVStack(spacing:10){
+					
 					ForEach(modelData.buildingData[0].buildings, id: \.buildingId){ data in
-						RowHomeView(building: data)
-						
+						NavigationLink{
+							DetailsView(info: data)
+						}
+					label:{
+						CardHomeView(building: data)
 					}
+				}
 				}
 				
 				.padding()
@@ -25,6 +30,11 @@ struct HomeView: View {
 			}
 			.searchable(text: $text)
 			.navigationTitle("Home")
+		}
+		.toolbar{
+			ToolbarItem{
+				Image(systemName: "line.3.horizontal.decrease.circle")
+			}
 		}
 		
 	}
