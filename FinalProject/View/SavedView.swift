@@ -11,13 +11,14 @@ struct SavedView: View {
 	@EnvironmentObject var modelData: BuildingModelView
 	
     var body: some View {
-		var favoritesArray = modelData.favoritesFilter(favorite: modelData.favoelements)
+		let favoritesArray = modelData.favoritesFilter(favorite: modelData.favoelements)
 		NavigationStack{
-			
-			List(favoritesArray, id: \.self){element in
-				Text(element.name)
-				
-			}.overlay{
+			List{
+				ForEach(favoritesArray, id: \.self){element in
+					RowFavoriteView(favorite: element)
+				}
+			}
+			.overlay{
 				if favoritesArray.isEmpty {
 					ContentUnavailableView{
 						Label("No Favorites", systemImage: "tray.fill")
@@ -27,6 +28,12 @@ struct SavedView: View {
 				}
 			}
 			.navigationTitle("Favorites")
+//			.toolbar{
+//				ToolbarItem(placement: .navigationBarLeading,
+//							content: {
+//					EditButton()}
+//				)
+//			}
 			
 		}
     }

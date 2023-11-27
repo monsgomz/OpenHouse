@@ -10,6 +10,10 @@ import MapKit
 
 struct DetailsView: View {
 	var info: BuildingModel
+	@EnvironmentObject var modelData: BuildingModelView
+	var isSet: Bool {
+		modelData.isFavorite(id: info.buildingId)
+	}
 	
     var body: some View {
 		ScrollView{
@@ -21,10 +25,10 @@ struct DetailsView: View {
 				.shadow(radius: 10)
 				.padding(8)
 				.overlay(alignment: .topTrailing){
-					FavoriteButtonView(id: info.buildingId)
+					FavoriteButtonView(id: info.buildingId, isSet: isSet)
 						.padding()
 				}
-
+			//Name information
 			HStack(spacing: 10){
 				Image(systemName: "square.and.arrow.up")
 				Text(info.name)
@@ -37,11 +41,12 @@ struct DetailsView: View {
 			.frame(width: 360, height: 30, alignment: .center)
 			Text(info.address)
 				.font(.subheadline)
+			
 			HStack{
 				CategoryView(info: info)
 			
 			}
-			// OPtion Hours
+			// Open Hours
 			VStack(alignment: .leading, spacing: 10){
 				Text("Open Hours")
 					.font(.title2)
@@ -66,8 +71,8 @@ struct DetailsView: View {
 				}
 				.padding()
 			}
-			.padding(15)
-			.frame(width: 360, height: 110, alignment: .leading)
+			.padding(8)
+			.frame(width: 360, height: 120, alignment: .leading)
 			.background(Color.red)
 			.clipShape(RoundedRectangle(cornerRadius: 20.0))
 			.shadow(radius: 10)
@@ -139,10 +144,13 @@ struct AmenitiesView: View {
 //				HStack {
 					if(checkAmenities().count > 5){
 						DisclosureGroup("More") {
-							ForEach(amenities.suffix(from: 5), id: \.self) { element in
-								Image(element).resizable()
-									.aspectRatio(contentMode: .fit)
-									.frame(width: 30, height: 30, alignment: .center)
+							HStack{
+								ForEach(amenities.suffix(from: 5), id: \.self) { element in
+									
+									Image(element).resizable()
+										.aspectRatio(contentMode: .fit)
+										.frame(width: 30, height: 30, alignment: .center)
+								}
 							}
 						}
 					}

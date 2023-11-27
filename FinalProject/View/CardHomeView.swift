@@ -11,6 +11,9 @@ import MapKit
 struct CardHomeView: View {
 	var building: BuildingModel
 	@EnvironmentObject var modelData: BuildingModelView
+	var isSet: Bool {
+		modelData.isFavorite(id: building.buildingId)
+	}
 	
     var body: some View {
 		VStack(spacing: 0){
@@ -20,8 +23,13 @@ struct CardHomeView: View {
 				.clipShape(RoundedRectangle(cornerRadius: 25.0))
 				.padding(.horizontal, 8)
 				.overlay(alignment: .topTrailing){
-					FavoriteButtonView(id: building.buildingId)
-						.padding()
+//					if (modelData.isFavorite(id: building.buildingId) != nil){
+//						Image(systemName: "heart.fill")
+//							.foregroundStyle(Color.red)
+//							.padding()
+//					}
+					FavoriteButtonView(modelData: _modelData, id: building.buildingId, isSet: isSet)
+						
 				}
 			//Caja descripcion
 			VStack(spacing: 0){

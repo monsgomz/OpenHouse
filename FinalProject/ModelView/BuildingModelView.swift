@@ -30,6 +30,7 @@ class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 		}
 	}
 	
+	/// Function to check the status of location
 	private func checkLocationAuthorization(){
 		guard let locationManager = locationManager else { return }
 		
@@ -54,20 +55,30 @@ class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 		checkLocationAuthorization()
 	}
 	
-	func setArrayLocation(){
 	
+	/// Function to set a new array with locations
+	func setArrayLocation(){
 		for building in  buildingData[0].buildings{
 				let newLocation = CLLocationCoordinate2D(latitude: building.latitude, longitude: building.longitude)
 				let location = Location(name: building.name, coordinate: newLocation)
 				locations.append(location)
 			}
-		
 	}
 	
-	func isFavorite(id:Int) -> BuildingModel?{
-		return buildingData[0].buildings.first(where: {$0.buildingId == id}) ?? nil
+	/// Function to check if the element is favorite
+	/// - Parameter id: buildingId
+	/// - Returns: Bool
+	func isFavorite(id:Int) -> Bool{
+		if ((favoelements.first(where: {$0 == id})) != nil){
+			return true
+		}
+		return false
 	}
 	
+	
+	/// Function to calculate the distance bewteen user and location
+	/// - Parameter other: a location building
+	/// - Returns: km
 	func Distance(other: CLLocationCoordinate2D) -> CLLocationDistance {
 		let otherLocation = CLLocation(latitude: other.latitude, longitude: other.longitude)
 	
@@ -75,12 +86,17 @@ class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 		
 		return distanceFromMe / 1000.0
 	}
+	
+	
+	/// Function to return an array of favorite elements
+	/// - Parameter favorite: array of favorites
+	/// - Returns: array of Buildings
 	func favoritesFilter(favorite: [Int]) -> [BuildingModel]{
 		return buildingData[0].buildings.filter{ element in
 			favorite.contains(element.buildingId)
 		}
-			
 	}
+	
 	
 }
 

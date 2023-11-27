@@ -10,15 +10,18 @@ import SwiftUI
 struct FavoriteButtonView: View {
 	@EnvironmentObject var modelData: BuildingModelView
 	var id: Int
-	@State var isSet = false
+	@State var isSet: Bool
 	
 	var body: some View {
 		Button {
 			
-			if((modelData.isFavorite(id: id)) != nil){
+			if let index = modelData.favoelements.firstIndex(of: id) {
+				modelData.favoelements.remove(at: index)
+			} else {
 				modelData.favoelements.append(id)
-				isSet.toggle()
 			}
+			print(modelData.favoelements.count)
+			isSet.toggle()
 			
 		} label: {
 			Label("Fav", systemImage: isSet ? "heart.fill" : "heart")
@@ -28,4 +31,7 @@ struct FavoriteButtonView: View {
 		}
 		.padding(12)
 	}
+
 }
+
+

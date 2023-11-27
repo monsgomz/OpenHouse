@@ -25,6 +25,7 @@ struct ContentView: View {
 				.tabItem {
 					Label("Favorite", systemImage: "heart")
 				}
+				.badge(modelData.favoelements.count)
 			MoreView()
 				.tabItem {
 					Label("More", systemImage: "ellipsis.rectangle.fill")
