@@ -14,6 +14,7 @@ class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 	@Published var buildingData: [BuildingData] = FinalProject.load("buildings")
 	@Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 45.424440220535125, longitude:  -75.70094318813211), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
 	@Published var locations: [Location] = []
+	@Published var favoelements: [Int] = []
 	
 	
 	var locationManager: CLLocationManager?
@@ -61,6 +62,18 @@ class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 				locations.append(location)
 			}
 		
+	}
+	
+	func isFavorite(id:Int) -> BuildingModel?{
+		return buildingData[0].buildings.first(where: {$0.buildingId == id}) ?? nil
+	}
+	
+	func Distance(other: CLLocationCoordinate2D) -> CLLocationDistance {
+		let otherLocation = CLLocation(latitude: other.latitude, longitude: other.longitude)
+	
+		guard let distanceFromMe = locationManager?.location?.distance(from: otherLocation) else { return 0.0}
+		
+		return distanceFromMe / 1000.0
 	}
 	
 }

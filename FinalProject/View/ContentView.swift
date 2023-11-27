@@ -21,6 +21,14 @@ struct ContentView: View {
 				.tabItem {
 					Label("Map", systemImage: "map")
 				}
+			SavedView()
+				.tabItem {
+					Label("Favorite", systemImage: "heart")
+				}
+			MoreView()
+				.tabItem {
+					Label("More", systemImage: "ellipsis.rectangle.fill")
+				}
 
 		}
 		.environmentObject(modelData)

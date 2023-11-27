@@ -9,20 +9,27 @@ import SwiftUI
 
 struct HomeView: View {
 	@EnvironmentObject var modelData: BuildingModelView
-	
-    var body: some View {
-		ScrollView {
-			LazyVStack{
-				ForEach(modelData.buildingData[0].buildings, id: \.buildingId){ data in
-					RowHomeView(building: data)
-					
+	@State var text = ""
+	var body: some View {
+		NavigationStack{
+			ScrollView {
+				LazyVStack(spacing:10){
+					ForEach(modelData.buildingData[0].buildings, id: \.buildingId){ data in
+						RowHomeView(building: data)
+						
+					}
 				}
+				
+				.padding()
+				
 			}
-			.padding()
+			.searchable(text: $text)
+			.navigationTitle("Home")
 		}
-    }
+		
+	}
 }
 
 #Preview {
-    HomeView().environmentObject(BuildingModelView())
+	HomeView().environmentObject(BuildingModelView())
 }

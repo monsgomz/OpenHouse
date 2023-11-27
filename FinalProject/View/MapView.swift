@@ -11,21 +11,25 @@ import MapKit
 struct MapView: View {
 	
 	@EnvironmentObject var modelData: BuildingModelView
-	@State var searchText = ""
+	@State private var selectedTag: Int?
 	
     var body: some View {
-	
 		VStack{
 			Map(coordinateRegion: $modelData.region, showsUserLocation: true, annotationItems: modelData.locations){ location in
 				MapAnnotation(coordinate: location.coordinate) {
-					Circle()
-						.stroke(.red, lineWidth: 3)
-						.frame(width: 44, height: 44)
+					ZStack {
+						Circle()
+							.fill(Color.teal)
+						Image(systemName: "house.fill")
+							.foregroundStyle(Color.white)
+							.padding(5)
+					}
 				}
-			}
+			} //map
 			.accentColor(.pink)
-			
+			.edgesIgnoringSafeArea(.top)
+
 		}
-		.searchable(text: $searchText)
+
     }
 }
