@@ -10,6 +10,7 @@ import SwiftUI
 struct MoreView: View {
 	@State var french: Bool = false
 	
+	
 	var body: some View {
 		NavigationStack {
 			List{
@@ -20,17 +21,23 @@ struct MoreView: View {
 					}
 					
 				}
-				Section(header: Text("Building")){
+				Section(header: Text("Recommendations")){
 					NavigationLink{
 						FormRecommendView()
 					}
 				label:{
 					Label("Recommend a building", systemImage: "house.and.flag")
 					}
+					NavigationLink{
+						ListRecommendationsView()
+					}
+				label:{
+					Label("Recommendations sent", systemImage: "tray.full.fill")
+				}
 				}
 				Section(header: Text("Team")){
 					NavigationLink{
-						FormRecommendView()
+						AboutMeView()
 					}
 				label:{
 					Label("Meet the team", systemImage: "person.2.fill")
@@ -39,7 +46,9 @@ struct MoreView: View {
 				
 			}
 			.navigationTitle("More")
+			
 		}
+		
 	}
 }
 

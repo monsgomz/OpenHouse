@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
 	
 	@StateObject var modelData = BuildingModelView()
+	@State var model = RecommendationModelView()
 	
     var body: some View {
 		TabView{
@@ -33,9 +34,12 @@ struct ContentView: View {
 
 		}
 		.environmentObject(modelData)
+		.environmentObject(model)
 		.onAppear{
 			modelData.checkLocactionEnabled()
 			modelData.setArrayLocation()
+			model.login()
+			
 		}
 		
     }

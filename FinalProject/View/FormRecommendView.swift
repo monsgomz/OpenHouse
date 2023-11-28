@@ -8,11 +8,33 @@
 import SwiftUI
 
 struct FormRecommendView: View {
+	@State var newBuilding: RecommendationModel = RecommendationModel()
+	@EnvironmentObject var model: RecommendationModelView
+	@State var picker = ""
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+		NavigationStack{
+			Form{
+				Section(header: Text("Informtion")){
+					TextField("Name of the building", text: $newBuilding.name)
+					Picker(selection: $newBuilding.category, label: Text("Category")) {
+						Text("1").tag(1)
+						Text("2").tag(2)
+					}
+				}
+				Section(header: Text("Description")){
+					TextField("Write a description of the building", text: $newBuilding.description)
+				}
+				Button{
+					model.saveRecommendation(recommend: newBuilding)
+				} label: {
+					Label("Save", systemImage: "paperplane.fill")
+				}
+			}
+			.navigationTitle("Recommendation")
+		}
     }
 }
 
 #Preview {
-    FormRecommendView()
+	FormRecommendView(newBuilding: RecommendationModel())
 }

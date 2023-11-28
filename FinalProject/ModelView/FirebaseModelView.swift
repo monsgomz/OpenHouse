@@ -16,7 +16,7 @@ class RecommendationModelView: ObservableObject {
 		fetchAllRecommendations()
 	}
 	
-	// Login
+	/// LogIn
 	func login() {
 		Auth.auth().signIn(withEmail: "general_user@gmail.com", password: "123456") { (result, error) in
 			if error != nil {
@@ -28,6 +28,8 @@ class RecommendationModelView: ObservableObject {
 	}
 	
 	
+	/// Save new information
+	/// - Parameter recommend: Object to save
 	func saveRecommendation(recommend: RecommendationModel){
 		let ref = recoemmendCollectionRef.document(recommend.id)
 		
@@ -50,6 +52,8 @@ class RecommendationModelView: ObservableObject {
 		}
 	}
 	
+	
+	/// Fetch all the information
 	func fetchAllRecommendations() {
 		self.recommend.removeAll()
 		recoemmendCollectionRef.getDocuments {

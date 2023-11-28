@@ -53,9 +53,10 @@
 		C2BB8BE12B163ECA0053BC9D /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BE02B163ECA0053BC9D /* FirebaseRemoteConfigSwift */; };
 		C2BB8BE32B163ECA0053BC9D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BE22B163ECA0053BC9D /* FirebaseStorage */; };
 		C2BB8BE52B163ECA0053BC9D /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BE42B163ECA0053BC9D /* FirebaseStorageCombine-Community */; };
-		C2BB8BE72B163F8B0053BC9D /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2BB8BE62B163F8B0053BC9D /* GoogleService-Info-2.plist */; };
+		C2BB8BE72B163F8B0053BC9D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2BB8BE62B163F8B0053BC9D /* GoogleService-Info.plist */; };
 		C2BB8BE92B1644E10053BC9D /* FirebaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB8BE82B1644E10053BC9D /* FirebaseModel.swift */; };
 		C2BB8BEB2B1645B70053BC9D /* FirebaseModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB8BEA2B1645B70053BC9D /* FirebaseModelView.swift */; };
+		C2BB8BED2B16647C0053BC9D /* ListRecommendationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB8BEC2B16647C0053BC9D /* ListRecommendationsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,9 +80,10 @@
 		C2BB8BA92B156E000053BC9D /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		C2BB8BAB2B158EDD0053BC9D /* FormRecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRecommendView.swift; sourceTree = "<group>"; };
 		C2BB8BAD2B1590000053BC9D /* AboutMeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeView.swift; sourceTree = "<group>"; };
-		C2BB8BE62B163F8B0053BC9D /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
+		C2BB8BE62B163F8B0053BC9D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C2BB8BE82B1644E10053BC9D /* FirebaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModel.swift; sourceTree = "<group>"; };
 		C2BB8BEA2B1645B70053BC9D /* FirebaseModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModelView.swift; sourceTree = "<group>"; };
+		C2BB8BEC2B16647C0053BC9D /* ListRecommendationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRecommendationsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 		C201100C2B112D4C000C61DF /* FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				C2BB8BE62B163F8B0053BC9D /* GoogleService-Info.plist */,
 				C20110562B1274FC000C61DF /* Resources */,
 				C201101D2B112D70000C61DF /* Model */,
 				C201101C2B112D66000C61DF /* ModelView */,
@@ -173,6 +176,7 @@
 				C201102F2B124C7B000C61DF /* SavedView.swift */,
 				C279FD5D2B1520320093A662 /* RowFavoriteView.swift */,
 				C20110312B124C86000C61DF /* MoreView.swift */,
+				C2BB8BEC2B16647C0053BC9D /* ListRecommendationsView.swift */,
 				C2BB8BAB2B158EDD0053BC9D /* FormRecommendView.swift */,
 				C2BB8BAD2B1590000053BC9D /* AboutMeView.swift */,
 				C279FD592B142A6F0093A662 /* FavoriteButtonView.swift */,
@@ -201,7 +205,6 @@
 		C20110562B1274FC000C61DF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C2BB8BE62B163F8B0053BC9D /* GoogleService-Info-2.plist */,
 				C20110572B12750C000C61DF /* buildings.json */,
 			);
 			path = Resources;
@@ -297,7 +300,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2BB8BE72B163F8B0053BC9D /* GoogleService-Info-2.plist in Resources */,
+				C2BB8BE72B163F8B0053BC9D /* GoogleService-Info.plist in Resources */,
 				C20110152B112D4E000C61DF /* Preview Assets.xcassets in Resources */,
 				C20110582B12750C000C61DF /* buildings.json in Resources */,
 				C20110242B112ED6000C61DF /* Data in Resources */,
@@ -319,6 +322,7 @@
 				C2BB8BAE2B1590000053BC9D /* AboutMeView.swift in Sources */,
 				C20110302B124C7B000C61DF /* SavedView.swift in Sources */,
 				C201101F2B112DCF000C61DF /* BuildingModel.swift in Sources */,
+				C2BB8BED2B16647C0053BC9D /* ListRecommendationsView.swift in Sources */,
 				C201102A2B124C4B000C61DF /* HomeView.swift in Sources */,
 				C279FD5C2B14DC6B0093A662 /* DetailsView.swift in Sources */,
 				C279FD5E2B1520320093A662 /* RowFavoriteView.swift in Sources */,
