@@ -16,8 +16,6 @@ struct DetailsView: View {
 	}
 	
     var body: some View {
-		
-		
 		NavigationStack{
 			ScrollView{
 				Image(info.image.replacingOccurrences(of: ".jpg", with: ""))
@@ -37,7 +35,6 @@ struct DetailsView: View {
 					Text(info.name)
 						.multilineTextAlignment(.leading)
 						.lineLimit(2)
-					//					.font(.title)
 						.bold()
 					Spacer()
 				}
@@ -79,7 +76,7 @@ struct DetailsView: View {
 				.background(Color.red)
 				.clipShape(RoundedRectangle(cornerRadius: 20.0))
 				.shadow(radius: 10)
-				.padding(10)
+//				.padding(10)
 				
 				Text("Description")
 					.font(.title2)
@@ -104,7 +101,7 @@ struct DetailsView: View {
 			}
 //			.navigationTitle(info.name)
 			.toolbar(content: {
-				FavoriteButtonView(id: info.buildingId, isSet: isSet)
+//				FavoriteButtonView(id: info.buildingId, isSet: isSet)
 			})
 			
 		}
@@ -149,8 +146,9 @@ struct AmenitiesView: View {
 						.aspectRatio(contentMode: .fit)
 						.frame(width: 30, height: 30, alignment: .center)
 				}
-				.fixedSize(horizontal: false, vertical: true)
-//				HStack {
+				.frame(width: 300, height: 60, alignment: .leading)
+				Spacer()
+				HStack {
 					if(checkAmenities().count > 5){
 						DisclosureGroup("More") {
 							HStack{
@@ -162,8 +160,9 @@ struct AmenitiesView: View {
 								}
 							}
 						}
+						
 					}
-//				}
+				}
 				
 			}
 			.frame(width: 360, height: 60, alignment: .center)

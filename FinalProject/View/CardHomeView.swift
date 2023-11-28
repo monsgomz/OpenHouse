@@ -9,6 +9,7 @@ import SwiftUI
 import MapKit
 
 struct CardHomeView: View {
+	
 	var building: BuildingModel
 	@EnvironmentObject var modelData: BuildingModelView
 	var isSet: Bool {
@@ -28,13 +29,14 @@ struct CardHomeView: View {
 //							.foregroundStyle(Color.red)
 //							.padding()
 //					}
-					FavoriteButtonView(modelData: _modelData, id: building.buildingId, isSet: isSet)
+					//TODO: Revisar funcionalidad!
+					FavoriteButtonView(id: building.buildingId, isSet: isSet)
 						
 				}
 			//Caja descripcion
 			VStack(spacing: 0){
 				HStack(alignment: .center, spacing: 10){
-					ShareLink("Item with subject and message", item: "Share email", subject: Text("Assignment due on Dex 15, 11:59 PM"), message: Text("This is a firendly reminder to submit your assignment on time"))
+					ShareLink("Item with subject and message", item: "Share email", subject: Text("\(building.name)"), message: Text("This is a firendly reminder to submit your assignment on time"))
 					Text(building.name)
 						.font(.subheadline)
 					Spacer()

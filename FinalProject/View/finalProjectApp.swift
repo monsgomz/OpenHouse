@@ -12,7 +12,7 @@ struct finalProjectApp: App {
 	
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SplashView()
 				
         }
     }

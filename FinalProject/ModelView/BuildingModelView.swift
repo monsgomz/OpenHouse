@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import MapKit
 
+
 class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 	
 	@Published var buildingData: [BuildingData] = FinalProject.load("buildings")
@@ -99,6 +100,7 @@ class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 	}
 	
 	
+	
 }
 
 /// Function to read the file and transform in JSON object
@@ -128,3 +130,6 @@ func load(_ filename: String) -> [BuildingData] {
 		fatalError("Couldn't parse \(filename) as \([BuildingData].self):\n\(error)")
 	}
 	}
+
+
+
