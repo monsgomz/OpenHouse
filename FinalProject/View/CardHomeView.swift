@@ -34,7 +34,7 @@ struct CardHomeView: View {
 			//Caja descripcion
 			VStack(spacing: 0){
 				HStack(alignment: .center, spacing: 10){
-					Image(systemName: "square.and.arrow.up")
+					ShareLink("Item with subject and message", item: "Share email", subject: Text("Assignment due on Dex 15, 11:59 PM"), message: Text("This is a firendly reminder to submit your assignment on time"))
 					Text(building.name)
 						.font(.subheadline)
 					Spacer()
@@ -47,7 +47,7 @@ struct CardHomeView: View {
 						.font(.footnote)
 						.fontWeight(.bold)
 					Spacer()
-					Text("\(modelData.Distance(other: CLLocationCoordinate2D(latitude: building.latitude, longitude: building.longitude)))from you")
+					Text("\(modelData.Distance(other: CLLocationCoordinate2D(latitude: building.latitude, longitude: building.longitude))) from you")
 						.font(.footnote)
 				}
 				.frame(width: 330, height: 40, alignment: .center)

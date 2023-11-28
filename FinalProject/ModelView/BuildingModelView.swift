@@ -79,12 +79,13 @@ class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 	/// Function to calculate the distance bewteen user and location
 	/// - Parameter other: a location building
 	/// - Returns: km
-	func Distance(other: CLLocationCoordinate2D) -> CLLocationDistance {
+	func Distance(other: CLLocationCoordinate2D) -> String {
 		let otherLocation = CLLocation(latitude: other.latitude, longitude: other.longitude)
-	
-		guard let distanceFromMe = locationManager?.location?.distance(from: otherLocation) else { return 0.0}
 		
-		return distanceFromMe / 1000.0
+		guard let distanceFromMe = locationManager?.location?.distance(from: otherLocation) else { return "0"}
+		
+		
+		return String(format: "%.2f", distanceFromMe/1000.0)
 	}
 	
 	

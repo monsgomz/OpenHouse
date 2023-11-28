@@ -16,87 +16,96 @@ struct DetailsView: View {
 	}
 	
     var body: some View {
-		ScrollView{
-			Image(info.image.replacingOccurrences(of: ".jpg", with: ""))
-				.resizable()
-				.aspectRatio(contentMode: .fit)
-				.clipShape(RoundedRectangle(cornerRadius: 25.0))
-				.frame(width: 380, height: 400, alignment: .center)
-				.shadow(radius: 10)
-				.padding(8)
-				.overlay(alignment: .topTrailing){
-					FavoriteButtonView(id: info.buildingId, isSet: isSet)
-						.padding()
+		
+		
+		NavigationStack{
+			ScrollView{
+				Image(info.image.replacingOccurrences(of: ".jpg", with: ""))
+					.resizable()
+					.aspectRatio(contentMode: .fit)
+					.clipShape(RoundedRectangle(cornerRadius: 25.0))
+					.frame(width: 380, alignment: .center)
+					.shadow(radius: 10)
+					.padding(8)
+					.overlay(alignment: .topTrailing){
+						FavoriteButtonView(id: info.buildingId, isSet: isSet)
+							.padding()
+					}
+				//Name information
+				HStack(spacing: 10){
+					Image(systemName: "square.and.arrow.up")
+					Text(info.name)
+						.multilineTextAlignment(.leading)
+						.lineLimit(2)
+					//					.font(.title)
+						.bold()
+					Spacer()
 				}
-			//Name information
-			HStack(spacing: 10){
-				Image(systemName: "square.and.arrow.up")
-				Text(info.name)
-					.multilineTextAlignment(.leading)
-					.lineLimit(2)
-//					.font(.title)
-				.bold()
-				Spacer()
-			}
-			.frame(width: 360, height: 30, alignment: .center)
-			Text(info.address)
-				.font(.subheadline)
-			
-			HStack{
-				CategoryView(info: info)
-			
-			}
-			// Open Hours
-			VStack(alignment: .leading, spacing: 10){
-				Text("Open Hours")
+				.frame(width: 360, height: 30, alignment: .center)
+				Text(info.address)
+					.font(.subheadline)
+				
+				HStack{
+					CategoryView(info: info)
+					
+				}
+				// Open Hours
+				VStack(alignment: .leading, spacing: 10){
+					Text("Open Hours")
+						.font(.title2)
+						.bold()
+					HStack(spacing: 8){
+						if(info.isOpenSaturday){
+							VStack{
+								Text("Staurday: ")
+								Text(info.saturdayStart)
+								Text(info.saturdayClose)
+							}
+							
+						} else if(info.isOpenSunday){
+							VStack{
+								Text("Sunday: ")
+								Text(info.sundayStart!)
+								Text(info.sundayClose!)
+							}
+						} else {
+							Text("Is close")
+						}
+					}
+					.padding()
+				}
+				.padding(10)
+				.frame(width: 360, height: 120, alignment: .leading)
+				.background(Color.red)
+				.clipShape(RoundedRectangle(cornerRadius: 20.0))
+				.shadow(radius: 10)
+				.padding(10)
+				
+				Text("Description")
 					.font(.title2)
 					.bold()
-				HStack(spacing: 8){
-					if(info.isOpenSaturday){
-						VStack{
-							Text("Staurday: ")
-							Text(info.saturdayStart)
-							Text(info.saturdayClose)
-						}
-						
-					} else if(info.isOpenSunday){
-						VStack{
-							Text("Sunday: ")
-							Text(info.sundayStart!)
-							Text(info.sundayClose!)
-						}
-					} else {
-						Text("Is close")
-					}
+				Text(info.description)
+					.multilineTextAlignment(.leading)
+					.frame(minWidth: 360, idealWidth: 370, maxWidth: 380, minHeight: 180, idealHeight: 180, maxHeight: .infinity, alignment: .center)
+					.padding(15)
+				
+				AmenitiesView(info: info)
+				
+				Text("Location")
+					.font(.title2)
+					.bold()
+				Map{
+					Marker(info.name,coordinate: CLLocationCoordinate2D(latitude: info.latitude, longitude:  info.longitude))
 				}
-				.padding()
+				.clipShape(RoundedRectangle(cornerRadius: 25.0))
+				.frame(width: 360, height: 360, alignment: .center)
+				Spacer()
+				
 			}
-			.padding(8)
-			.frame(width: 360, height: 120, alignment: .leading)
-			.background(Color.red)
-			.clipShape(RoundedRectangle(cornerRadius: 20.0))
-			.shadow(radius: 10)
-			.padding(10)
-			
-			Text("Description")
-				.font(.title2)
-				.bold()
-			Text(info.description)
-				.multilineTextAlignment(.leading)
-				.frame(minWidth: 360, idealWidth: 370, maxWidth: 380, minHeight: 180, idealHeight: 180, maxHeight: .infinity, alignment: .center)
-				.padding(10)
-			
-			AmenitiesView(info: info)
-			
-			Text("Location")
-				.font(.title2)
-				.bold()
-			Map{
-				Marker(info.name,coordinate: CLLocationCoordinate2D(latitude: info.latitude, longitude:  info.longitude))
-			}
-			.clipShape(RoundedRectangle(cornerRadius: 25.0))
-			.frame(width: 360, height: 360, alignment: .center)
-			Spacer()
+//			.navigationTitle(info.name)
+			.toolbar(content: {
+				FavoriteButtonView(id: info.buildingId, isSet: isSet)
+			})
 			
 		}
 		

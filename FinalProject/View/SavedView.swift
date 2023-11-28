@@ -10,13 +10,25 @@ import SwiftUI
 struct SavedView: View {
 	@EnvironmentObject var modelData: BuildingModelView
 	
+	
+	
     var body: some View {
 		let favoritesArray = modelData.favoritesFilter(favorite: modelData.favoelements)
 		NavigationStack{
 			List{
 				ForEach(favoritesArray, id: \.self){element in
+					NavigationLink{
+						DetailsView(info: element)
+					}
+				label: {
 					RowFavoriteView(favorite: element)
 				}
+				}
+//				.onDelete(perform: { indexSet in
+//					if let index = modelData.favoelements.firstIndex(of: indexSet.hashValue-1) {
+//						modelData.favoelements.remove(at: index)
+//					}
+//				})
 			}
 			.overlay{
 				if favoritesArray.isEmpty {
@@ -36,7 +48,10 @@ struct SavedView: View {
 //			}
 			
 		}
+		
+		
     }
+
 }
 
 #Preview {

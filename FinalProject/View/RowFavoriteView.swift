@@ -14,21 +14,24 @@ struct RowFavoriteView: View {
 	
     var body: some View {
 		VStack{
-			HStack{
+			HStack(spacing: 10){
 				Image(favorite.image.replacingOccurrences(of: ".jpg", with: ""))
 					.resizable()
 					.aspectRatio(contentMode: .fit)
 					.clipShape(RoundedRectangle(cornerRadius: 15))
 					.frame(width: 130, height: 80, alignment: .center)
-					.padding(5)
+
 				VStack(alignment: .leading ,spacing: 10){
 					Text(favorite.name)
 						.textCase(.uppercase)
-						.font(.subheadline)
+						.font(.footnote)
+
 						.bold()
 					Text(favorite.address).font(.caption)
-					Text("\(modelData.Distance(other: CLLocationCoordinate2D(latitude: favorite.latitude, longitude: favorite.longitude)))%.0f KM from you").font(.footnote)
+					Text("\(modelData.Distance(other: CLLocationCoordinate2D(latitude: favorite.latitude, longitude: favorite.longitude)))KM from you")
+						.font(.caption2)
 				}
+				Spacer()
 				
 			}
 		}
