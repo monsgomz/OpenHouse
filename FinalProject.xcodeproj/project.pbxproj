@@ -26,15 +26,15 @@
 		C2BB8BAA2B156E000053BC9D /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB8BA92B156E000053BC9D /* SplashView.swift */; };
 		C2BB8BAC2B158EDD0053BC9D /* FormRecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB8BAB2B158EDD0053BC9D /* FormRecommendView.swift */; };
 		C2BB8BAE2B1590000053BC9D /* AboutMeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB8BAD2B1590000053BC9D /* AboutMeView.swift */; };
-		C2BB8BB12B163ECA0053BC9D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BB02B163ECA0053BC9D /* FirebaseAnalytics */; };
+		C2BB8BB12B163ECA0053BC9D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BB02B163ECA0053BC9D /* FirebaseAnalytics */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C2BB8BB32B163ECA0053BC9D /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BB22B163ECA0053BC9D /* FirebaseAnalyticsOnDeviceConversion */; };
-		C2BB8BB52B163ECA0053BC9D /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BB42B163ECA0053BC9D /* FirebaseAnalyticsSwift */; };
-		C2BB8BB72B163ECA0053BC9D /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BB62B163ECA0053BC9D /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		C2BB8BB52B163ECA0053BC9D /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BB42B163ECA0053BC9D /* FirebaseAnalyticsSwift */; settings = {ATTRIBUTES = (Weak, ); }; };
+		C2BB8BB72B163ECA0053BC9D /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BB62B163ECA0053BC9D /* FirebaseAnalyticsWithoutAdIdSupport */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C2BB8BB92B163ECA0053BC9D /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BB82B163ECA0053BC9D /* FirebaseAppCheck */; };
 		C2BB8BBB2B163ECA0053BC9D /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BBA2B163ECA0053BC9D /* FirebaseAppDistribution-Beta */; };
 		C2BB8BBD2B163ECA0053BC9D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BBC2B163ECA0053BC9D /* FirebaseAuth */; };
-		C2BB8BBF2B163ECA0053BC9D /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BBE2B163ECA0053BC9D /* FirebaseAuthCombine-Community */; };
-		C2BB8BC12B163ECA0053BC9D /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BC02B163ECA0053BC9D /* FirebaseCrashlytics */; };
+		C2BB8BBF2B163ECA0053BC9D /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BBE2B163ECA0053BC9D /* FirebaseAuthCombine-Community */; settings = {ATTRIBUTES = (Weak, ); }; };
+		C2BB8BC12B163ECA0053BC9D /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BC02B163ECA0053BC9D /* FirebaseCrashlytics */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C2BB8BC32B163ECA0053BC9D /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BC22B163ECA0053BC9D /* FirebaseDatabase */; };
 		C2BB8BC52B163ECA0053BC9D /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BC42B163ECA0053BC9D /* FirebaseDatabaseSwift */; };
 		C2BB8BC72B163ECA0053BC9D /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BC62B163ECA0053BC9D /* FirebaseDynamicLinks */; };
@@ -43,12 +43,12 @@
 		C2BB8BCD2B163ECA0053BC9D /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BCC2B163ECA0053BC9D /* FirebaseFirestoreSwift */; };
 		C2BB8BCF2B163ECA0053BC9D /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BCE2B163ECA0053BC9D /* FirebaseFunctions */; };
 		C2BB8BD12B163ECA0053BC9D /* FirebaseFunctionsCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BD02B163ECA0053BC9D /* FirebaseFunctionsCombine-Community */; };
-		C2BB8BD32B163ECA0053BC9D /* FirebaseInAppMessaging-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BD22B163ECA0053BC9D /* FirebaseInAppMessaging-Beta */; };
+		C2BB8BD32B163ECA0053BC9D /* FirebaseInAppMessaging-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BD22B163ECA0053BC9D /* FirebaseInAppMessaging-Beta */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C2BB8BD52B163ECA0053BC9D /* FirebaseInAppMessagingSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BD42B163ECA0053BC9D /* FirebaseInAppMessagingSwift-Beta */; };
 		C2BB8BD72B163ECA0053BC9D /* FirebaseInstallations in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BD62B163ECA0053BC9D /* FirebaseInstallations */; };
 		C2BB8BD92B163ECA0053BC9D /* FirebaseMLModelDownloader in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BD82B163ECA0053BC9D /* FirebaseMLModelDownloader */; };
 		C2BB8BDB2B163ECA0053BC9D /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BDA2B163ECA0053BC9D /* FirebaseMessaging */; };
-		C2BB8BDD2B163ECA0053BC9D /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BDC2B163ECA0053BC9D /* FirebasePerformance */; };
+		C2BB8BDD2B163ECA0053BC9D /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BDC2B163ECA0053BC9D /* FirebasePerformance */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C2BB8BDF2B163ECA0053BC9D /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BDE2B163ECA0053BC9D /* FirebaseRemoteConfig */; };
 		C2BB8BE12B163ECA0053BC9D /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BE02B163ECA0053BC9D /* FirebaseRemoteConfigSwift */; };
 		C2BB8BE32B163ECA0053BC9D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C2BB8BE22B163ECA0053BC9D /* FirebaseStorage */; };
@@ -57,6 +57,7 @@
 		C2BB8BE92B1644E10053BC9D /* FirebaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB8BE82B1644E10053BC9D /* FirebaseModel.swift */; };
 		C2BB8BEB2B1645B70053BC9D /* FirebaseModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB8BEA2B1645B70053BC9D /* FirebaseModelView.swift */; };
 		C2BB8BED2B16647C0053BC9D /* ListRecommendationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB8BEC2B16647C0053BC9D /* ListRecommendationsView.swift */; };
+		C2BB8BEF2B1792F50053BC9D /* HousePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB8BEE2B1792F50053BC9D /* HousePreview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		C2BB8BE82B1644E10053BC9D /* FirebaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModel.swift; sourceTree = "<group>"; };
 		C2BB8BEA2B1645B70053BC9D /* FirebaseModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModelView.swift; sourceTree = "<group>"; };
 		C2BB8BEC2B16647C0053BC9D /* ListRecommendationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRecommendationsView.swift; sourceTree = "<group>"; };
+		C2BB8BEE2B1792F50053BC9D /* HousePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousePreview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 				C2BB8BAB2B158EDD0053BC9D /* FormRecommendView.swift */,
 				C2BB8BAD2B1590000053BC9D /* AboutMeView.swift */,
 				C279FD592B142A6F0093A662 /* FavoriteButtonView.swift */,
+				C2BB8BEE2B1792F50053BC9D /* HousePreview.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				C201102C2B124C61000C61DF /* MapView.swift in Sources */,
 				C20110102B112D4C000C61DF /* ContentView.swift in Sources */,
 				C2BB8BAE2B1590000053BC9D /* AboutMeView.swift in Sources */,
+				C2BB8BEF2B1792F50053BC9D /* HousePreview.swift in Sources */,
 				C20110302B124C7B000C61DF /* SavedView.swift in Sources */,
 				C201101F2B112DCF000C61DF /* BuildingModel.swift in Sources */,
 				C2BB8BED2B16647C0053BC9D /* ListRecommendationsView.swift in Sources */,

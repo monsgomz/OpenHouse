@@ -71,7 +71,7 @@ struct DetailsView: View {
 					}
 					.padding(10)
 				}
-//				.padding(10)
+				.padding(15)
 				.frame(width: 360, height: 120, alignment: .leading)
 				.background(Color.red)
 				.clipShape(RoundedRectangle(cornerRadius: 20.0))
@@ -149,6 +149,7 @@ struct AmenitiesView: View {
 //				.frame(width: 300, height: 60, alignment: .leading)
 //				Spacer()
 				HStack {
+					Spacer()
 					if(checkAmenities().count > 5){
 						DisclosureGroup("More") {
 							HStack{
