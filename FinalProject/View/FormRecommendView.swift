@@ -12,6 +12,11 @@ struct FormRecommendView: View {
 	@EnvironmentObject var model: RecommendationModelView
 	@EnvironmentObject var modelData: BuildingModelView
 	@State var picker = 1
+	@State var alert = false
+	@Environment(\.presentationMode) var presentationMode
+	@State var result = false
+	@State var title = ""
+	@State var text = ""
 	
     var body: some View {
 		NavigationStack{
@@ -30,11 +35,19 @@ struct FormRecommendView: View {
 					TextField("Write a description of the building", text: $newBuilding.description)
 				}
 				Button(action: {
-					print("picker: \(picker)")
+//					print("picker: \(picker)")
 					newBuilding.category = String(picker)
-					model.saveRecommendation(recommend: newBuilding)
+					alert.toggle()
+					result = model.saveRecommendation(recommend: newBuilding)
+					title = result ? "Thank you!" : "Sorry!"
+					text = result ? "Your recommendation has been received" : "Sorry There was a problem try later"
 				}) {
 					Label("Save", systemImage: "paperplane.fill")
+				}
+				.alert(title, isPresented: $alert){
+					Button("OK", action: {self.presentationMode.wrappedValue.dismiss()})
+				} message: {
+					Text("Your recommendation has been received")
 				}
 			}
 			.navigationTitle("Recommendation")

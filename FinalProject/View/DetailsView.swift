@@ -15,6 +15,18 @@ struct DetailsView: View {
 		modelData.isFavorite(id: info.buildingId)
 	}
 	
+	func dateFormat(date: String) -> Date{
+		// Create Date Formatter
+		var dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+		let dateFormatted = dateFormatter.date(from: date)!
+		let dateComponents = Calendar.current.dateComponents([.day, .month, .hour, .minute], from: dateFormatted)
+//		let componentsString = String(dateComponents.day) + "/ " + String(dateComponents.month) + "/ " + String(dateComponents.hour) + " -" + String( dateComponents.minute)
+//		print(dateComponents)
+		return dateFormatted
+		
+	}
+	
     var body: some View {
 		NavigationStack{
 			ScrollView{
@@ -53,10 +65,11 @@ struct DetailsView: View {
 						.bold()
 					HStack(spacing: 8){
 						if(info.isOpenSaturday){
+							
 							VStack{
-								Text("Staurday: ")
-								Text(info.saturdayStart)
-								Text(info.saturdayClose)
+								Text("Saturday: ")
+								Text("\(dateFormat(date:info.saturdayStart!))")
+								Text(info.saturdayClose!)
 							}
 							
 						} else if(info.isOpenSunday){
@@ -100,10 +113,10 @@ struct DetailsView: View {
 				
 			}
 //			.navigationTitle(info.name)
-			.toolbar(content: {
-//				FavoriteButtonView(id: info.buildingId, isSet: isSet)
-			})
-			
+//			.toolbar(content: {
+////				FavoriteButtonView(id: info.buildingId, isSet: isSet)
+//			})
+//			
 		}
 		
     }

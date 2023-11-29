@@ -30,8 +30,9 @@ class RecommendationModelView: ObservableObject {
 	
 	/// Save new information
 	/// - Parameter recommend: Object to save
-	func saveRecommendation(recommend: RecommendationModel){
+	func saveRecommendation(recommend: RecommendationModel) -> Bool {
 		let ref = recoemmendCollectionRef.document(recommend.id)
+		var flag = false
 		
 		ref.setData(
 			[
@@ -44,12 +45,15 @@ class RecommendationModelView: ObservableObject {
 			error in
 			if let error = error {
 				print(error.localizedDescription)
+				
 			} else {
 				if !self.recommend.contains(where: { $0.id == recommend.id }) {
 					self.recommend.append(recommend)
+					flag = true
 				}
 			}
 		}
+		return flag
 	}
 	
 	

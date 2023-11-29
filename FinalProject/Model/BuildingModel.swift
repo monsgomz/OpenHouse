@@ -31,8 +31,8 @@ class BuildingModel: Codable, Hashable{
 		var website: String?
 		var categoryId: Int
 		var category: String
-		var saturdayStart: String
-		var saturdayClose: String
+		var saturdayStart: String?
+		var saturdayClose: String?
 		var sundayStart: String?
 		var sundayClose: String?
 		var isShuttle: Bool
