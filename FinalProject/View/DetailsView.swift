@@ -69,9 +69,9 @@ struct DetailsView: View {
 							Text("Is close")
 						}
 					}
-					.padding()
+					.padding(10)
 				}
-				.padding(10)
+//				.padding(10)
 				.frame(width: 360, height: 120, alignment: .leading)
 				.background(Color.red)
 				.clipShape(RoundedRectangle(cornerRadius: 20.0))
@@ -146,8 +146,8 @@ struct AmenitiesView: View {
 						.aspectRatio(contentMode: .fit)
 						.frame(width: 30, height: 30, alignment: .center)
 				}
-				.frame(width: 300, height: 60, alignment: .leading)
-				Spacer()
+//				.frame(width: 300, height: 60, alignment: .leading)
+//				Spacer()
 				HStack {
 					if(checkAmenities().count > 5){
 						DisclosureGroup("More") {

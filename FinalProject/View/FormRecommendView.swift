@@ -10,23 +10,30 @@ import SwiftUI
 struct FormRecommendView: View {
 	@State var newBuilding: RecommendationModel = RecommendationModel()
 	@EnvironmentObject var model: RecommendationModelView
-	@State var picker = ""
+	@EnvironmentObject var modelData: BuildingModelView
+	@State var picker = 1
+	
     var body: some View {
 		NavigationStack{
-			Form{
+			Form {
 				Section(header: Text("Informtion")){
 					TextField("Name of the building", text: $newBuilding.name)
-					Picker(selection: $newBuilding.category, label: Text("Category")) {
-						Text("1").tag(1)
-						Text("2").tag(2)
+					Picker(selection: $picker, label: Text("Category")) {
+						ForEach(modelData.categories.keys.sorted(), id: \.self) { key in
+							Text("\(modelData.categories[key] ?? "")").tag(key)
+						}
+						
+
 					}
 				}
 				Section(header: Text("Description")){
 					TextField("Write a description of the building", text: $newBuilding.description)
 				}
-				Button{
+				Button(action: {
+					print("picker: \(picker)")
+					newBuilding.category = String(picker)
 					model.saveRecommendation(recommend: newBuilding)
-				} label: {
+				}) {
 					Label("Save", systemImage: "paperplane.fill")
 				}
 			}

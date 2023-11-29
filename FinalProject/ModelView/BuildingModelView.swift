@@ -16,6 +16,7 @@ class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 	@Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 45.424440220535125, longitude:  -75.70094318813211), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
 	@Published var locations: [Location] = []
 	@Published var favoelements: [Int] = []
+	@Published var categories: [Int:String] = [:]
 	
 	
 	var locationManager: CLLocationManager?
@@ -66,6 +67,13 @@ class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 			}
 	}
 	
+	func setArrayCategories(){
+		for category in  buildingData[0].buildings{
+			categories[category.categoryId] = category.category
+		}
+
+	}
+	
 	/// Function to check if the element is favorite
 	/// - Parameter id: buildingId
 	/// - Returns: Bool
@@ -85,7 +93,6 @@ class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 		
 		guard let distanceFromMe = locationManager?.location?.distance(from: otherLocation) else { return "0"}
 		
-		
 		return String(format: "%.2f", distanceFromMe/1000.0)
 	}
 	
@@ -102,6 +109,7 @@ class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 	
 	
 }
+
 
 /// Function to read the file and transform in JSON object
 /// - Parameter filename: Name of the file

@@ -13,7 +13,7 @@ struct HomeView: View {
 	var body: some View {
 		NavigationStack{
 			ScrollView {
-				LazyVStack(spacing:10){
+				LazyVStack(spacing:15){
 					
 					ForEach(modelData.buildingData[0].buildings, id: \.buildingId){ data in
 						NavigationLink{
@@ -30,11 +30,13 @@ struct HomeView: View {
 			}
 			.searchable(text: $text)
 			.navigationTitle("Home")
-		}
-		.toolbar{
-			ToolbarItem{
-				Image(systemName: "line.3.horizontal.decrease.circle")
+			.toolbar{
+				ToolbarItem{
+					Image(systemName: "line.3.horizontal.decrease.circle")
+						.foregroundStyle(Color.accentColor)
+				}
 			}
+			.background(LinearGradient(colors: [Color("Background"), Color.white], startPoint: .top, endPoint: .bottom))
 		}
 		
 	}

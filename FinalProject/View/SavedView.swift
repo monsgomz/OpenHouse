@@ -34,6 +34,7 @@ struct SavedView: View {
 				if favoritesArray.isEmpty {
 					ContentUnavailableView{
 						Label("No Favorites", systemImage: "tray.fill")
+							.foregroundStyle(Color.accent)
 					} description: {
 						Text("Saved houses will appear here.")
 					}

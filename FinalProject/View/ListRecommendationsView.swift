@@ -28,6 +28,7 @@ struct ListRecommendationsView: View {
 			.onAppear(){
 				model.fetchAllRecommendations()
 			}
+			.navigationTitle("Recommendations sent")
 		}
     }
 }

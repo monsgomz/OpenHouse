@@ -26,7 +26,7 @@ struct FavoriteButtonView: View {
 		} label: {
 			Label("Fav", systemImage: isSet ? "heart.fill" : "heart")
 				.labelStyle(.iconOnly)
-				.foregroundColor(isSet ? .indigo : .gray)
+				.foregroundColor(isSet ? .accent : .white)
 				.font(.system(size: 24))
 		}
 		.padding(12)

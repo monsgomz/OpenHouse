@@ -17,7 +17,7 @@ struct SplashView: View {
 				ContentView()
 			} else {
 				Rectangle()
-					.fill(Color.cyan)
+					.fill(Color("Background"))
 				Image("ic_logo")
 					.resizable()
 					.scaledToFit()
@@ -31,6 +31,7 @@ struct SplashView: View {
 				}
 			}
 		}
+		.ignoresSafeArea()
 	}
 	
 }

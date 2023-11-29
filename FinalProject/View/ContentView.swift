@@ -12,6 +12,7 @@ struct ContentView: View {
 	@StateObject var modelData = BuildingModelView()
 	@State var model = RecommendationModelView()
 	
+	
     var body: some View {
 		TabView{
 			HomeView()
@@ -33,12 +34,14 @@ struct ContentView: View {
 				}
 
 		}
+		.tint(Color.accent)
 		.environmentObject(modelData)
 		.environmentObject(model)
 		.onAppear{
 			modelData.checkLocactionEnabled()
 			modelData.setArrayLocation()
 			model.login()
+			modelData.setArrayCategories()
 			
 		}
 		
