@@ -11,7 +11,7 @@ struct ContentView: View {
 	
 	@StateObject var modelData = BuildingModelView()
 	@State var model = RecommendationModelView()
-	
+	@StateObject var networkMonitor = NetworkMonitor()
 	
     var body: some View {
 		TabView{
@@ -37,6 +37,7 @@ struct ContentView: View {
 		.tint(Color.accent)
 		.environmentObject(modelData)
 		.environmentObject(model)
+		.environmentObject(networkMonitor)
 		.onAppear{
 			modelData.checkLocactionEnabled()
 			modelData.setArrayLocation()

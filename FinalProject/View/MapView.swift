@@ -13,23 +13,29 @@ struct MapView: View {
 	@EnvironmentObject var modelData: BuildingModelView
 	@State private var selectedTag: Int?
 	@State private var position: MapCameraPosition = .userLocation(fallback: .automatic)
-	@State private var selectedResult: Int?
+	@State private var selectedResult: String? = nil
+	@State private var elementSelected: BuildingModel?
 	
 	var body: some View {
 		VStack{
 			Map(position: $position, selection: $selectedResult){
 				ForEach(modelData.locations){ element in
 
-					Marker(element.name, coordinate: element.coordinate)
-						.tag(Int.random(in: 0..<100))
+					Marker(element.name, systemImage: "house.and.flag.fill" ,coordinate: element.coordinate)
+						.tag(element.name)
+						
 				}
 				UserAnnotation()
+				
+			}.onChange(of: selectedResult){
+				elementSelected = modelData.mapFilter(mapElementName: selectedResult ?? "")
 			}
 			.mapStyle(.standard(elevation: .realistic))
 			.safeAreaInset(edge: .bottom){
-				if selectedResult != nil{
-					HousePreview()
+				if selectedResult != nil && elementSelected != nil{
+					HousePreview(mapElement: elementSelected)
 						.shadow(radius: 10)
+				
 				}
 			}
 			.mapControls{

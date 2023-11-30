@@ -35,18 +35,15 @@ struct CardHomeView: View {
 				}
 			//Caja descripcion
 			VStack(spacing: 0){
-				HStack(alignment: .firstTextBaseline, spacing: 8){
-					ShareLink("", item: "Share email", subject: Text("\(building.name)"), message: Text("This is a firendly reminder to submit your assignment on time"))
+				HStack(alignment: .center, spacing: 8){
+					ShareLink("", item: building.name, subject: Text("Look this building!!"), message: Text("I want to share with you this important building."))
+						
 						.padding(.horizontal, 10)
 					Text(building.name)
 						.textCase(.uppercase)
 						.font(.caption)
-						
-//					Spacer()
 				}
-				.frame(width: 340, height: 35, alignment: .center)
-				.padding(8)
-			.background(Color.white)
+
 				HStack(alignment: .center, spacing: 10){
 					Text(building.address)
 						.font(.footnote)
@@ -55,10 +52,10 @@ struct CardHomeView: View {
 					Text("\(modelData.Distance(other: CLLocationCoordinate2D(latitude: building.latitude, longitude: building.longitude))) from you")
 						.font(.footnote)
 				}
-				.frame(width: 330, height: 15, alignment: .center)
-				.padding(15)
-				.background(Color.white)
+//
 			}
+			.background(Color.white)
+//			.frame(width: 310, height: 400, alignment: .center)
 			.clipShape(RoundedRectangle(cornerRadius: 25.0))
 			.shadow(radius: 10)
 			

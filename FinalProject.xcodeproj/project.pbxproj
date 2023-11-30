@@ -58,6 +58,8 @@
 		C2BB8BEB2B1645B70053BC9D /* FirebaseModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB8BEA2B1645B70053BC9D /* FirebaseModelView.swift */; };
 		C2BB8BED2B16647C0053BC9D /* ListRecommendationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB8BEC2B16647C0053BC9D /* ListRecommendationsView.swift */; };
 		C2BB8BEF2B1792F50053BC9D /* HousePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB8BEE2B1792F50053BC9D /* HousePreview.swift */; };
+		C2BB8BF12B17E2180053BC9D /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB8BF02B17E2180053BC9D /* NetworkMonitor.swift */; };
+		C2BB8BF42B17E3BD0053BC9D /* SFSafariViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB8BF32B17E3BD0053BC9D /* SFSafariViewWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +88,8 @@
 		C2BB8BEA2B1645B70053BC9D /* FirebaseModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModelView.swift; sourceTree = "<group>"; };
 		C2BB8BEC2B16647C0053BC9D /* ListRecommendationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRecommendationsView.swift; sourceTree = "<group>"; };
 		C2BB8BEE2B1792F50053BC9D /* HousePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousePreview.swift; sourceTree = "<group>"; };
+		C2BB8BF02B17E2180053BC9D /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		C2BB8BF32B17E3BD0053BC9D /* SFSafariViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSafariViewWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,17 +176,12 @@
 				C2BB8BA92B156E000053BC9D /* SplashView.swift */,
 				C201100F2B112D4C000C61DF /* ContentView.swift */,
 				C20110292B124C4B000C61DF /* HomeView.swift */,
-				C279FD572B13AF4D0093A662 /* CardHomeView.swift */,
 				C279FD5B2B14DC6B0093A662 /* DetailsView.swift */,
 				C201102B2B124C61000C61DF /* MapView.swift */,
 				C201102F2B124C7B000C61DF /* SavedView.swift */,
-				C279FD5D2B1520320093A662 /* RowFavoriteView.swift */,
 				C20110312B124C86000C61DF /* MoreView.swift */,
-				C2BB8BEC2B16647C0053BC9D /* ListRecommendationsView.swift */,
-				C2BB8BAB2B158EDD0053BC9D /* FormRecommendView.swift */,
 				C2BB8BAD2B1590000053BC9D /* AboutMeView.swift */,
-				C279FD592B142A6F0093A662 /* FavoriteButtonView.swift */,
-				C2BB8BEE2B1792F50053BC9D /* HousePreview.swift */,
+				C2BB8BF22B17E3630053BC9D /* Components */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -193,6 +192,8 @@
 				C20110272B1246CB000C61DF /* BuildingModelView.swift */,
 				C2BB8BE82B1644E10053BC9D /* FirebaseModel.swift */,
 				C2BB8BEA2B1645B70053BC9D /* FirebaseModelView.swift */,
+				C2BB8BF02B17E2180053BC9D /* NetworkMonitor.swift */,
+				C2BB8BF32B17E3BD0053BC9D /* SFSafariViewWrapper.swift */,
 			);
 			path = ModelView;
 			sourceTree = "<group>";
@@ -211,6 +212,19 @@
 				C20110572B12750C000C61DF /* buildings.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		C2BB8BF22B17E3630053BC9D /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C2BB8BEC2B16647C0053BC9D /* ListRecommendationsView.swift */,
+				C279FD572B13AF4D0093A662 /* CardHomeView.swift */,
+				C279FD5D2B1520320093A662 /* RowFavoriteView.swift */,
+				C2BB8BAB2B158EDD0053BC9D /* FormRecommendView.swift */,
+				C279FD592B142A6F0093A662 /* FavoriteButtonView.swift */,
+				C2BB8BEE2B1792F50053BC9D /* HousePreview.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,10 +345,12 @@
 				C279FD5C2B14DC6B0093A662 /* DetailsView.swift in Sources */,
 				C279FD5E2B1520320093A662 /* RowFavoriteView.swift in Sources */,
 				C2BB8BAA2B156E000053BC9D /* SplashView.swift in Sources */,
+				C2BB8BF42B17E3BD0053BC9D /* SFSafariViewWrapper.swift in Sources */,
 				C279FD582B13AF4D0093A662 /* CardHomeView.swift in Sources */,
 				C201100E2B112D4C000C61DF /* finalProjectApp.swift in Sources */,
 				C279FD5A2B142A6F0093A662 /* FavoriteButtonView.swift in Sources */,
 				C2BB8BEB2B1645B70053BC9D /* FirebaseModelView.swift in Sources */,
+				C2BB8BF12B17E2180053BC9D /* NetworkMonitor.swift in Sources */,
 				C20110322B124C86000C61DF /* MoreView.swift in Sources */,
 				C2BB8BAC2B158EDD0053BC9D /* FormRecommendView.swift in Sources */,
 			);

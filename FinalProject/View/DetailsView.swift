@@ -14,18 +14,9 @@ struct DetailsView: View {
 	var isSet: Bool {
 		modelData.isFavorite(id: info.buildingId)
 	}
+	@State var showSafari: Bool = false
 	
-	func dateFormat(date: String) -> Date{
-		// Create Date Formatter
-		var dateFormatter = DateFormatter()
-		dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-		let dateFormatted = dateFormatter.date(from: date)!
-		let dateComponents = Calendar.current.dateComponents([.day, .month, .hour, .minute], from: dateFormatted)
-//		let componentsString = String(dateComponents.day) + "/ " + String(dateComponents.month) + "/ " + String(dateComponents.hour) + " -" + String( dateComponents.minute)
-//		print(dateComponents)
-		return dateFormatted
-		
-	}
+	
 	
     var body: some View {
 		NavigationStack{
@@ -43,7 +34,7 @@ struct DetailsView: View {
 					}
 				//Name information
 				HStack(spacing: 10){
-					Image(systemName: "square.and.arrow.up")
+					ShareLink("", item: info.name, subject: Text("Look this building!!"), message: Text("I want to share with you this important building."))
 					Text(info.name)
 						.multilineTextAlignment(.leading)
 						.lineLimit(2)
@@ -65,10 +56,9 @@ struct DetailsView: View {
 						.bold()
 					HStack(spacing: 8){
 						if(info.isOpenSaturday){
-							
 							VStack{
 								Text("Saturday: ")
-								Text("\(dateFormat(date:info.saturdayStart!))")
+								Text(info.saturdayStart!)
 								Text(info.saturdayClose!)
 							}
 							
@@ -101,6 +91,17 @@ struct DetailsView: View {
 				
 				AmenitiesView(info: info)
 				
+				if(info.website != nil) {
+					Text("Read more information")
+					Text(info.website!)
+						.onTapGesture {
+							showSafari.toggle()
+						}
+						.fullScreenCover(isPresented: $showSafari, content: {
+							SFSafariViewWrapper(url: URL(string: "\(info.website ?? "https://www.google.com")")!)
+						})
+					
+				}
 				Text("Location")
 					.font(.title2)
 					.bold()
@@ -112,11 +113,7 @@ struct DetailsView: View {
 				Spacer()
 				
 			}
-//			.navigationTitle(info.name)
-//			.toolbar(content: {
-////				FavoriteButtonView(id: info.buildingId, isSet: isSet)
-//			})
-//			
+
 		}
 		
     }
@@ -200,5 +197,17 @@ struct AmenitiesView: View {
 			info.isOCTranspoNearby ? "ocTranspo" : ""
 		].filter { !$0.isEmpty }
 
+	}
+	
+	func dateFormat(date: String) -> Date{
+		// Create Date Formatter
+		var dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+		let dateFormatted = dateFormatter.date(from: date)!
+		let dateComponents = Calendar.current.dateComponents([.day, .month, .hour, .minute], from: dateFormatted)
+		//		let componentsString = String(dateComponents.day) + "/ " + String(dateComponents.month) + "/ " + String(dateComponents.hour) + " -" + String( dateComponents.minute)
+		//		print(dateComponents)
+		return dateFormatted
+		
 	}
 }

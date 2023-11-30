@@ -107,6 +107,11 @@ class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 	}
 	
 	
+	func mapFilter(mapElementName: String) -> BuildingModel?{
+		return buildingData[0].buildings.first{$0.name == mapElementName} ?? nil
+		
+	}
+	
 	
 }
 

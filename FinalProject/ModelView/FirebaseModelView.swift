@@ -49,7 +49,7 @@ class RecommendationModelView: ObservableObject {
 			} else {
 				if !self.recommend.contains(where: { $0.id == recommend.id }) {
 					self.recommend.append(recommend)
-					flag = true
+					flag.toggle()
 				}
 			}
 		}
