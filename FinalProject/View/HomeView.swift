@@ -17,12 +17,20 @@ struct HomeView: View {
 	@State private var alphabetically = false
 	@State private var distance = false
 	
+	var filteredBuildings: [BuildingModel] {
+		if text.isEmpty {
+			return modelData.filteredData(filter: filter, sort: sort, text: text)
+		} else {
+			return modelData.filteredData(filter: .search, sort: sort, text: text)
+		}
+	}
+	
 	
 	var body: some View {
 		NavigationStack{
 			ScrollView {
 				LazyVStack(spacing:15){
-					ForEach(modelData.filteredData(filter: filter, sort: sort, text: text), id: \.buildingId){ data in
+					ForEach(filteredBuildings, id: \.buildingId){ data in
 						NavigationLink{
 							DetailsView(info: data)
 						}

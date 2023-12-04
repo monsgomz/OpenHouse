@@ -83,10 +83,20 @@ struct FilterView: View {
 							filter = .categories
 						} else if(modelData.amenities.first{$0.selected} != nil){
 							filter = .amenities
-						} else {
-							filter = .none
-						
 						}
+						else {
+								filter = .none
+							}
+						
+							if(alphabetically){
+								sort = .alphabetically
+							} else if(distance){
+								sort = .distance
+							} else {
+								sort = .none
+							}
+						
+						
 						isShowing.toggle()
 					}
 				}
