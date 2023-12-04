@@ -58,3 +58,24 @@ struct Location: Identifiable {
 	let name: String
 	let coordinate: CLLocationCoordinate2D
 }
+
+struct Category {
+	var id: Int
+	var name: String
+	var selected: Bool
+}
+
+struct Amenities {
+	var id: Int
+	var image: String
+	var name: String
+	var selected: Bool
+}
+
+enum FilterType {
+	case none, categories, amenities, search, categoiresAdnAmenities
+	}
+
+enum SortType {
+	case none, alphabetically, distance
+}

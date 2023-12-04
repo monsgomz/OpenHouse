@@ -42,14 +42,9 @@ struct ContentView: View {
 			modelData.checkLocactionEnabled()
 			modelData.setArrayLocation()
 			model.login()
-			modelData.setArrayCategories()
 			
 		}
 		
     }
 	
-}
-
-#Preview {
-    ContentView()
 }

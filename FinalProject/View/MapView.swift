@@ -17,13 +17,11 @@ struct MapView: View {
 	@State private var elementSelected: BuildingModel?
 	
 	var body: some View {
-		VStack{
+		NavigationStack{
 			Map(position: $position, selection: $selectedResult){
 				ForEach(modelData.locations){ element in
-
 					Marker(element.name, systemImage: "house.and.flag.fill" ,coordinate: element.coordinate)
 						.tag(element.name)
-						
 				}
 				UserAnnotation()
 				
@@ -33,9 +31,19 @@ struct MapView: View {
 			.mapStyle(.standard(elevation: .realistic))
 			.safeAreaInset(edge: .bottom){
 				if selectedResult != nil && elementSelected != nil{
+					NavigationLink{
+						DetailsView(info: elementSelected!)
+					}
+				label:{
 					HousePreview(mapElement: elementSelected)
 						.shadow(radius: 10)
+					
+				}
+//				.buttonStyle(.plain)
+				.frame(height: 200, alignment: .leading)
+				.background(Color.accent)
 				
+					
 				}
 			}
 			.mapControls{

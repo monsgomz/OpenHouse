@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct HomeView: View {
+	
 	@EnvironmentObject var modelData: BuildingModelView
 	@State var text = ""
+	@State var isShowing = false
+	@State var filter: FilterType = .none
+	@State var sort: SortType = .none
+	
+	
 	var body: some View {
 		NavigationStack{
 			ScrollView {
 				LazyVStack(spacing:15){
-					
-					ForEach(modelData.buildingData[0].buildings, id: \.buildingId){ data in
+					ForEach(modelData.filteredData(filter: filter, sort: sort, text: text), id: \.buildingId){ data in
 						NavigationLink{
 							DetailsView(info: data)
 						}
@@ -24,9 +29,7 @@ struct HomeView: View {
 					}
 				}
 				}
-				
 				.padding()
-				
 			}
 			.searchable(text: $text)
 			.navigationTitle("Home")
@@ -34,14 +37,17 @@ struct HomeView: View {
 				ToolbarItem{
 					Image(systemName: "line.3.horizontal.decrease.circle")
 						.foregroundStyle(Color.accentColor)
+						.onTapGesture {
+							isShowing.toggle()
+						}
 				}
 			}
-			.background(LinearGradient(colors: [Color("Background"), Color.white], startPoint: .top, endPoint: .bottom))
+			.sheet(isPresented: $isShowing, content: {
+				FilterView(isShowing: $isShowing, filter: $filter, sort: $sort)
+			})
+
 		}
 		
 	}
 }
 
-#Preview {
-	HomeView().environmentObject(BuildingModelView())
-}

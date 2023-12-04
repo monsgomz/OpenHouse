@@ -9,18 +9,43 @@ import SwiftUI
 import MapKit
 
 struct DetailsView: View {
+	
 	var info: BuildingModel
 	@EnvironmentObject var modelData: BuildingModelView
 	var isSet: Bool {
 		modelData.isFavorite(id: info.buildingId)
 	}
 	@State var showSafari: Bool = false
+	@State var isViewed = false
 	
-	
+
+	func dateFormat(date: String) -> Date{
+		// Create Date Formatter
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+//		let dateFormatted = dateFormatter.date(from: date)!
+//		let dateComponents = Calendar.current.dateComponents([.day, .month, .hour, .minute], from: dateFormatted)
+////		let componentsString = String(dateComponents.) + "/ " + String(dateComponents.month) + "/ " + String(dateComponents.hour) + " -" + String( dateComponents.minute)
+//		print(dateComponents.weekdayOrdinal ?? "weekDay")
+//		print(dateComponents.description )
+//		print(dateComponents.day ?? "day" )
+//		print(dateComponents.weekday ?? "weekday")
+//		print(dateComponents.
+		
+//		formatter.dateStyle = .long
+
+//		dateFormatter.dateStyle = .medium
+		let dateFormatted = dateFormatter.date(from: date)!
+		
+		return dateFormatted
+		
+	}
 	
     var body: some View {
 		NavigationStack{
 			ScrollView{
+				ZStack(alignment: .bottomTrailing){
+					
 				Image(info.image.replacingOccurrences(of: ".jpg", with: ""))
 					.resizable()
 					.aspectRatio(contentMode: .fit)
@@ -29,21 +54,36 @@ struct DetailsView: View {
 					.shadow(radius: 10)
 					.padding(8)
 					.overlay(alignment: .topTrailing){
-						FavoriteButtonView(id: info.buildingId, isSet: isSet)
+//						FavoriteButtonView(id: info.buildingId, isSet: isSet)
+						Image("newBuilding")
+							.resizable()
+							.aspectRatio(contentMode: .fit)
+							.foregroundStyle(Color.white)
+							.frame(width: 40)
 							.padding()
 					}
+					Text(info.imageDescription)
+						.font(.caption)
+						.padding()
+						.background(Color.accent)
+					.clipShape(RoundedRectangle(cornerRadius: 20))
+					.foregroundStyle(Color.white)
+					.frame(width: 370)
+					.offset(x: -5, y: 25)
+					.padding()
+					
+			}
 				//Name information
 				HStack(spacing: 10){
 					ShareLink("", item: info.name, subject: Text("Look this building!!"), message: Text("I want to share with you this important building."))
 					Text(info.name)
 						.multilineTextAlignment(.leading)
-						.lineLimit(2)
+						.lineLimit(2, reservesSpace: true)
 						.bold()
 					Spacer()
 				}
 				.frame(width: 360, height: 30, alignment: .center)
-				Text(info.address)
-					.font(.subheadline)
+				.padding(10)
 				
 				HStack{
 					CategoryView(info: info)
@@ -54,15 +94,17 @@ struct DetailsView: View {
 					Text("Open Hours")
 						.font(.title2)
 						.bold()
+						.padding(.top, 10)
 					HStack(spacing: 8){
 						if(info.isOpenSaturday){
 							VStack{
 								Text("Saturday: ")
-								Text(info.saturdayStart!)
+								Text("\(dateFormat(date:info.saturdayStart!))")
 								Text(info.saturdayClose!)
 							}
 							
-						} else if(info.isOpenSunday){
+						} 
+						if(info.isOpenSunday){
 							VStack{
 								Text("Sunday: ")
 								Text(info.sundayStart!)
@@ -76,7 +118,7 @@ struct DetailsView: View {
 				}
 				.padding(15)
 				.frame(width: 360, height: 120, alignment: .leading)
-				.background(Color.red)
+				.background(Color.white)
 				.clipShape(RoundedRectangle(cornerRadius: 20.0))
 				.shadow(radius: 10)
 //				.padding(10)
@@ -84,37 +126,69 @@ struct DetailsView: View {
 				Text("Description")
 					.font(.title2)
 					.bold()
+					.padding()
 				Text(info.description)
 					.multilineTextAlignment(.leading)
-					.frame(minWidth: 360, idealWidth: 370, maxWidth: 380, minHeight: 180, idealHeight: 180, maxHeight: .infinity, alignment: .center)
-					.padding(15)
-				
+					.lineLimit(isViewed ? 20 : 5)
+					.frame(width: 360, alignment: .leading)
+//					.padding(15)
+				HStack{
+					Spacer()
+					Button(isViewed ? "Read Less" : "Read More" ) {
+						isViewed.toggle()
+					}
+					.font(.system(size: 15, weight: .semibold))
+					.padding(.trailing, 10)
+				}
+				.padding(15)
 				AmenitiesView(info: info)
 				
 				if(info.website != nil) {
-					Text("Read more information")
-					Text(info.website!)
-						.onTapGesture {
-							showSafari.toggle()
-						}
-						.fullScreenCover(isPresented: $showSafari, content: {
-							SFSafariViewWrapper(url: URL(string: "\(info.website ?? "https://www.google.com")")!)
-						})
+					HStack {
+						Text("Read more information")
+						Image(systemName: "laptopcomputer")
+							.onTapGesture {
+								showSafari.toggle()
+							}
+							.fullScreenCover(isPresented: $showSafari, content: {
+								SFSafariViewWrapper(url: URL(string: "\(info.website ?? "https://www.google.com")")!)
+							})
+					}
+					.padding(10)
 					
 				}
 				Text("Location")
 					.font(.title2)
 					.bold()
-				Map{
+					.padding()
+				HStack{
+					Image(systemName: "map.circle.fill")
+					Text(info.address)
+						.font(.subheadline)
+						.foregroundStyle(Color.gray)
+					Spacer()
+				}
+				.padding(.leading, 15)
+				Map(bounds:
+						MapCameraBounds(minimumDistance: 4500,
+										maximumDistance: 4500)){
 					Marker(info.name,coordinate: CLLocationCoordinate2D(latitude: info.latitude, longitude:  info.longitude))
 				}
 				.clipShape(RoundedRectangle(cornerRadius: 25.0))
 				.frame(width: 360, height: 360, alignment: .center)
+				.padding(.bottom, 20)
 				Spacer()
 				
 			}
 
 		}
+		.toolbar{
+			ToolbarItem(placement: .navigationBarTrailing) {
+				FavoriteButtonView(id: info.buildingId, isSet: isSet)
+			}
+		}
+//		.background(LinearGradient(colors: [Color("Background"), Color.white], startPoint: .top, endPoint: .bottom))
+		
 		
     }
 }
@@ -156,20 +230,19 @@ struct AmenitiesView: View {
 						.aspectRatio(contentMode: .fit)
 						.frame(width: 30, height: 30, alignment: .center)
 				}
-//				.frame(width: 300, height: 60, alignment: .leading)
-//				Spacer()
+
 				HStack {
 					Spacer()
 					if(checkAmenities().count > 5){
 						DisclosureGroup("More") {
-							HStack{
+							
 								ForEach(amenities.suffix(from: 5), id: \.self) { element in
 									
 									Image(element).resizable()
 										.aspectRatio(contentMode: .fit)
 										.frame(width: 30, height: 30, alignment: .center)
 								}
-							}
+							
 						}
 						
 					}
@@ -199,15 +272,5 @@ struct AmenitiesView: View {
 
 	}
 	
-	func dateFormat(date: String) -> Date{
-		// Create Date Formatter
-		var dateFormatter = DateFormatter()
-		dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-		let dateFormatted = dateFormatter.date(from: date)!
-		let dateComponents = Calendar.current.dateComponents([.day, .month, .hour, .minute], from: dateFormatted)
-		//		let componentsString = String(dateComponents.day) + "/ " + String(dateComponents.month) + "/ " + String(dateComponents.hour) + " -" + String( dateComponents.minute)
-		//		print(dateComponents)
-		return dateFormatted
-		
-	}
+	
 }

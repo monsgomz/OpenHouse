@@ -36,8 +36,8 @@ struct FormRecommendView: View {
 					Section(header: Text("Information")){
 						TextField("Name of the building", text: $newBuilding.name)
 						Picker(selection: $picker, label: Text("Category")) {
-							ForEach(modelData.categories.keys.sorted(), id: \.self) { key in
-								Text("\(modelData.categories[key] ?? "")").tag(key)
+							ForEach(modelData.categories, id: \.id){ element in
+								Text(element.name)
 							}
 							
 							

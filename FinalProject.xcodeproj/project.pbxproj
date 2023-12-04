@@ -23,6 +23,7 @@
 		C279FD5A2B142A6F0093A662 /* FavoriteButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C279FD592B142A6F0093A662 /* FavoriteButtonView.swift */; };
 		C279FD5C2B14DC6B0093A662 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C279FD5B2B14DC6B0093A662 /* DetailsView.swift */; };
 		C279FD5E2B1520320093A662 /* RowFavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C279FD5D2B1520320093A662 /* RowFavoriteView.swift */; };
+		C289919D2B1CDE6400463688 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C289919C2B1CDE6400463688 /* FilterView.swift */; };
 		C2BB8BAA2B156E000053BC9D /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB8BA92B156E000053BC9D /* SplashView.swift */; };
 		C2BB8BAC2B158EDD0053BC9D /* FormRecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB8BAB2B158EDD0053BC9D /* FormRecommendView.swift */; };
 		C2BB8BAE2B1590000053BC9D /* AboutMeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB8BAD2B1590000053BC9D /* AboutMeView.swift */; };
@@ -80,6 +81,7 @@
 		C279FD592B142A6F0093A662 /* FavoriteButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButtonView.swift; sourceTree = "<group>"; };
 		C279FD5B2B14DC6B0093A662 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		C279FD5D2B1520320093A662 /* RowFavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowFavoriteView.swift; sourceTree = "<group>"; };
+		C289919C2B1CDE6400463688 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		C2BB8BA92B156E000053BC9D /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		C2BB8BAB2B158EDD0053BC9D /* FormRecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRecommendView.swift; sourceTree = "<group>"; };
 		C2BB8BAD2B1590000053BC9D /* AboutMeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeView.swift; sourceTree = "<group>"; };
@@ -190,7 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				C20110272B1246CB000C61DF /* BuildingModelView.swift */,
-				C2BB8BE82B1644E10053BC9D /* FirebaseModel.swift */,
 				C2BB8BEA2B1645B70053BC9D /* FirebaseModelView.swift */,
 				C2BB8BF02B17E2180053BC9D /* NetworkMonitor.swift */,
 				C2BB8BF32B17E3BD0053BC9D /* SFSafariViewWrapper.swift */,
@@ -202,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				C201101E2B112DCF000C61DF /* BuildingModel.swift */,
+				C2BB8BE82B1644E10053BC9D /* FirebaseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,6 +225,7 @@
 				C2BB8BAB2B158EDD0053BC9D /* FormRecommendView.swift */,
 				C279FD592B142A6F0093A662 /* FavoriteButtonView.swift */,
 				C2BB8BEE2B1792F50053BC9D /* HousePreview.swift */,
+				C289919C2B1CDE6400463688 /* FilterView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C289919D2B1CDE6400463688 /* FilterView.swift in Sources */,
 				C2BB8BE92B1644E10053BC9D /* FirebaseModel.swift in Sources */,
 				C20110282B1246CB000C61DF /* BuildingModelView.swift in Sources */,
 				C201102C2B124C61000C61DF /* MapView.swift in Sources */,
