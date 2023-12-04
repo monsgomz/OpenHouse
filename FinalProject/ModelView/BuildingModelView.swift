@@ -151,18 +151,39 @@ class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 				return categoriaSeleccionada?.selected ?? false
 			}
 		case .amenities:
+			let selectedAmenities = amenities.filter { $0.selected }
+			
 			filteredData = buildingData[0].buildings.filter { building in
-				amenities.allSatisfy { amenity in
-					let amenityKey = amenity.name
-					let mirror = Mirror(reflecting: building)
+				selectedAmenities.allSatisfy { amenity in
+					let amenityName = amenity.name
 					
-					if let value = mirror.children.first(where: { $0.label == amenityKey })?.value as? Bool {
-						return value == true && amenity.selected
+					switch amenityName {
+					case "isNew":
+						return building.isNew
+					case "isshuttle":
+						return building.isShuttle
+					case "isPublicWashrooms":
+						return building.isPublicWashrooms
+					case "isAccessible" :
+						return building.isAccessible
+					case "isFreeParking" :
+						return building.isFreeParking
+					case "isBikeParking" :
+						return building.isBikeParking
+					case "isPaidParking" :
+						return building.isPaidParking
+					case "isGuidedTour" :
+						return building.isGuidedTour
+					case "isFamilyFriendly" :
+						return building.isFamilyFriendly
+					case "isOCTranspoNearby" :
+						return building.isOCTranspoNearby
+					default:
+						return false
 					}
-					
-					return false
 				}
 			}
+			print(filteredData.count)
 			
 		case .search:
 			filteredData = buildingData[0].buildings.filter { $0.name.contains(text) }

@@ -12,8 +12,8 @@ struct FilterView: View {
 	@Binding var isShowing: Bool
 	@Binding var filter: FilterType
 	@Binding var sort: SortType
-	@State private var alphabetically = false
-	@State private var distance = false
+	@Binding var alphabetically: Bool
+	@Binding var distance: Bool
 
 	
     var body: some View {
@@ -52,6 +52,9 @@ struct FilterView: View {
 							Image(systemName: element.selected ? "circle.inset.filled" : "circlebadge")
 							Image(element.image)
 								.resizable()
+								.aspectRatio(contentMode: .fit)
+								.frame(width: 20)
+								.padding(.trailing, 8)
 								
 							Text(element.name)
 							Spacer()
@@ -71,6 +74,9 @@ struct FilterView: View {
 			.toolbar{
 				ToolbarItem{
 					Button("Done"){
+						print(modelData.categories.first{$0.selected} ?? "none")
+						print(modelData.amenities.first{$0.selected}  ?? "none")
+						
 						if(modelData.categories.first{$0.selected} != nil && modelData.amenities.first{$0.selected} != nil){
 							filter = .categoiresAdnAmenities
 						} else if(modelData.categories.first{$0.selected} != nil){
@@ -79,9 +85,10 @@ struct FilterView: View {
 							filter = .amenities
 						} else {
 							filter = .none
+						
 						}
-							isShowing.toggle()
-						}
+						isShowing.toggle()
+					}
 				}
 			}
 			

@@ -14,6 +14,8 @@ struct HomeView: View {
 	@State var isShowing = false
 	@State var filter: FilterType = .none
 	@State var sort: SortType = .none
+	@State private var alphabetically = false
+	@State private var distance = false
 	
 	
 	var body: some View {
@@ -43,7 +45,7 @@ struct HomeView: View {
 				}
 			}
 			.sheet(isPresented: $isShowing, content: {
-				FilterView(isShowing: $isShowing, filter: $filter, sort: $sort)
+				FilterView(isShowing: $isShowing, filter: $filter, sort: $sort, alphabetically: $alphabetically, distance: $distance)
 			})
 
 		}
