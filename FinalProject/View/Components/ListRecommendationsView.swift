@@ -13,8 +13,13 @@ struct ListRecommendationsView: View {
     var body: some View {
 		NavigationStack{
 			List(model.recommend, id: \.id){ building in
-				Text(building.name)
-				
+				VStack{
+					Text(building.name)
+						.font(.caption)
+					Text(building.description)
+						.font(.caption2)
+				}
+			
 			}
 			.overlay{
 				if model.recommend.isEmpty {
@@ -28,11 +33,7 @@ struct ListRecommendationsView: View {
 			.onAppear(){
 				model.fetchAllRecommendations()
 			}
-			.navigationTitle("Recommendations sent")
+			.navigationTitle("Buildings sent")
 		}
     }
-}
-
-#Preview {
-    ListRecommendationsView()
 }

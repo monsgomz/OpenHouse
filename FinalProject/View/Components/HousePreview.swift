@@ -59,9 +59,10 @@ struct HousePreview: View {
 			
 		}
 		
-		.padding()
+//		.padding()
+		.clipShape(RoundedRectangle(cornerRadius: 20.0))
 //		.background(Color.accent)
-//		.clipShape(RoundedRectangle(cornerRadius: 25.0))
+//		.clipShape(RoundedRectangle(cornerRadius: 20.0))
 		.frame(width: 380)
 		
 		

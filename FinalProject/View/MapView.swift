@@ -39,7 +39,7 @@ struct MapView: View {
 						.shadow(radius: 10)
 					
 				}
-//				.buttonStyle(.plain)
+				.clipShape(RoundedRectangle(cornerRadius: 20.0))
 				.frame(height: 200, alignment: .leading)
 				.background(Color.accent)
 				

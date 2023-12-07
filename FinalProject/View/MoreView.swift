@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MoreView: View {
 	@State var french: Bool = false
-	
+	@EnvironmentObject var modelData: BuildingModelView
 	
 	var body: some View {
 		NavigationStack {
@@ -18,6 +18,9 @@ struct MoreView: View {
 					
 					Toggle(isOn: $french) {
 						Label("French", systemImage: "character.bubble.fill")
+					}
+					.onChange(of: french){
+						modelData.french = french ? 1 : 0
 					}
 					
 				}

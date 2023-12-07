@@ -32,7 +32,6 @@ struct FormRecommendView: View {
 				}
 			} else{
 				
-				
 					Section(header: Text("Information")){
 						TextField("Name of the building", text: $newBuilding.name)
 						Picker(selection: $picker, label: Text("Category")) {
@@ -46,6 +45,7 @@ struct FormRecommendView: View {
 					Section(header: Text("Description")){
 						TextField("Write a description of the building", text: $newBuilding.description)
 					}
+				
 					Button(action: {
 						newBuilding.category = String(picker)
 						
@@ -58,6 +58,7 @@ struct FormRecommendView: View {
 					}) {
 						Label("Save", systemImage: "paperplane.fill")
 					}
+					.disabled(newBuilding.name.isEmpty || newBuilding.description.isEmpty)
 					.alert(title, isPresented: $alert){
 						Button("OK", action: {self.presentationMode.wrappedValue.dismiss()})
 					} message: {
@@ -72,6 +73,3 @@ struct FormRecommendView: View {
     }
 }
 
-#Preview {
-	FormRecommendView(newBuilding: RecommendationModel())
-}

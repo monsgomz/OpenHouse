@@ -19,25 +19,15 @@ struct DetailsView: View {
 	@State var isViewed = false
 	
 
-	func dateFormat(date: String) -> Date{
+	func dateFormat(date: String) -> String{
 		// Create Date Formatter
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-//		let dateFormatted = dateFormatter.date(from: date)!
-//		let dateComponents = Calendar.current.dateComponents([.day, .month, .hour, .minute], from: dateFormatted)
-////		let componentsString = String(dateComponents.) + "/ " + String(dateComponents.month) + "/ " + String(dateComponents.hour) + " -" + String( dateComponents.minute)
-//		print(dateComponents.weekdayOrdinal ?? "weekDay")
-//		print(dateComponents.description )
-//		print(dateComponents.day ?? "day" )
-//		print(dateComponents.weekday ?? "weekday")
-//		print(dateComponents.
-		
-//		formatter.dateStyle = .long
-
-//		dateFormatter.dateStyle = .medium
 		let dateFormatted = dateFormatter.date(from: date)!
-		
-		return dateFormatted
+		dateFormatter.dateFormat = "EEEE d HH:mm"
+		let formattedString = dateFormatter.string(from: dateFormatted)
+
+		return formattedString
 		
 	}
 	
@@ -54,13 +44,14 @@ struct DetailsView: View {
 					.shadow(radius: 10)
 					.padding(8)
 					.overlay(alignment: .topTrailing){
-//						FavoriteButtonView(id: info.buildingId, isSet: isSet)
-						Image("newBuilding")
-							.resizable()
-							.aspectRatio(contentMode: .fit)
-							.foregroundStyle(Color.white)
-							.frame(width: 40)
-							.padding()
+						if(info.isNew){
+							Image("nuevo-2")
+								.resizable()
+								.aspectRatio(contentMode: .fit)
+								.foregroundStyle(Color.white)
+								.frame(width: 40)
+								.padding()
+						}
 					}
 					Text(info.imageDescription)
 						.font(.caption)
@@ -100,24 +91,26 @@ struct DetailsView: View {
 							VStack{
 								Text("Saturday: ")
 								Text("\(dateFormat(date:info.saturdayStart!))")
-								Text(info.saturdayClose!)
+								Text("To")
+								Text("\(dateFormat(date:info.saturdayClose!))")
+								
 							}
 							
 						} 
 						if(info.isOpenSunday){
 							VStack{
 								Text("Sunday: ")
-								Text(info.sundayStart!)
-								Text(info.sundayClose!)
+								Text("\(dateFormat(date:info.sundayStart!))")
+								Text("To")
+								Text("\(dateFormat(date:info.sundayClose!))")
 							}
-						} else {
-							Text("Is close")
-						}
+						} 
+						
 					}
 					.padding(10)
 				}
 				.padding(15)
-				.frame(width: 360, height: 120, alignment: .leading)
+				.frame(width: 360, height: 160, alignment: .leading)
 				.background(Color.white)
 				.clipShape(RoundedRectangle(cornerRadius: 20.0))
 				.shadow(radius: 10)
@@ -182,14 +175,13 @@ struct DetailsView: View {
 			}
 
 		}
+		.navigationTitle("Building details")
 		.toolbar{
 			ToolbarItem(placement: .navigationBarTrailing) {
 				FavoriteButtonView(id: info.buildingId, isSet: isSet)
 			}
 		}
-//		.background(LinearGradient(colors: [Color("Background"), Color.white], startPoint: .top, endPoint: .bottom))
-		
-		
+
     }
 }
 
@@ -230,29 +222,27 @@ struct AmenitiesView: View {
 						.aspectRatio(contentMode: .fit)
 						.frame(width: 30, height: 30, alignment: .center)
 				}
-
-				HStack {
-					Spacer()
+//			}
+//				HStack {
+//					Spacer()
 					if(checkAmenities().count > 5){
 						DisclosureGroup("More") {
-							
+							HStack{
 								ForEach(amenities.suffix(from: 5), id: \.self) { element in
 									
 									Image(element).resizable()
 										.aspectRatio(contentMode: .fit)
 										.frame(width: 30, height: 30, alignment: .center)
 								}
-							
+							}
 						}
 						
 					}
 				}
 				
 			}
-			.frame(width: 360, height: 60, alignment: .center)
+			.frame(width: 360, height: 80, alignment: .center)
 			.padding()
-			
-		}
 	}
 	
 	func checkAmenities() -> [String]{

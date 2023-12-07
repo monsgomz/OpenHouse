@@ -41,7 +41,7 @@ struct HomeView: View {
 				}
 				.padding()
 			}
-			.searchable(text: $text)
+			.searchable(text: $text, prompt: "Look for a building")
 			.navigationTitle("Home")
 			.toolbar{
 				ToolbarItem{
@@ -54,6 +54,7 @@ struct HomeView: View {
 			}
 			.sheet(isPresented: $isShowing, content: {
 				FilterView(isShowing: $isShowing, filter: $filter, sort: $sort, alphabetically: $alphabetically, distance: $distance)
+					.presentationContentInteraction(.scrolls)
 			})
 
 		}

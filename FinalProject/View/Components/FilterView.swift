@@ -14,11 +14,11 @@ struct FilterView: View {
 	@Binding var sort: SortType
 	@Binding var alphabetically: Bool
 	@Binding var distance: Bool
-
 	
-    var body: some View {
+	
+	var body: some View {
 		NavigationStack{
-			ScrollView {
+			Form {
 				Section(header: Text("Sort")) {
 					Toggle(
 						"Alphabetically",
@@ -40,7 +40,7 @@ struct FilterView: View {
 							Spacer()
 						}
 						.padding(.horizontal)
-						.onTapGesture{ 
+						.onTapGesture{
 							modelData.filterDataCategory(elementSelected: element)
 						}
 					}
@@ -55,18 +55,16 @@ struct FilterView: View {
 								.aspectRatio(contentMode: .fit)
 								.frame(width: 20)
 								.padding(.trailing, 8)
-								
-							Text(element.name)
+							
+							Text(element.newName)
 							Spacer()
 						}
 						.padding(.horizontal)
 						.onTapGesture {
 							modelData.filterDataAmenities(elementSelected: element)
-							
 						}
 					}
 				}
-			
 				
 			}
 			.navigationTitle("Filter")
@@ -85,16 +83,16 @@ struct FilterView: View {
 							filter = .amenities
 						}
 						else {
-								filter = .none
-							}
+							filter = .none
+						}
 						
-							if(alphabetically){
-								sort = .alphabetically
-							} else if(distance){
-								sort = .distance
-							} else {
-								sort = .none
-							}
+						if(alphabetically){
+							sort = .alphabetically
+						} else if(distance){
+							sort = .distance
+						} else {
+							sort = .none
+						}
 						
 						
 						isShowing.toggle()
@@ -103,7 +101,7 @@ struct FilterView: View {
 			}
 			
 		}
-    }
+	}
 }
 
 

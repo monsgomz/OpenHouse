@@ -53,12 +53,12 @@ struct CardHomeView: View {
 					Text("\(modelData.Distance(other: CLLocationCoordinate2D(latitude: building.latitude, longitude: building.longitude))) from you")
 						.font(.footnote)
 				}
+				.padding(.horizontal, 5)
 				.frame(width: 310, height: 40, alignment: .leading)
-				.padding(5)
+				
 			}
 			.background(Color.white)
-//			.padding()
-//			.frame(width: 310, height: 400, alignment: .center)
+
 			.clipShape(RoundedRectangle(cornerRadius: 25.0))
 			.offset(x:0, y: -30.0)
 			.shadow(radius: 10)

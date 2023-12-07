@@ -70,6 +70,7 @@ struct Amenities {
 	var image: String
 	var name: String
 	var selected: Bool
+	var newName: String
 }
 
 enum FilterType {

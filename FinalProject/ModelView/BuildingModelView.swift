@@ -16,7 +16,7 @@ class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 	@Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 45.424440220535125, longitude:  -75.70094318813211), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
 	@Published var locations: [Location] = []
 	@Published var favoelements: [Int] = []
-//	@Published var filteredData: [BuildingModel] = []
+	@Published var french: Int = 0
 	@Published var categories: [Category] = [
 		Category(id: 0, name: "Religious buildings", selected: false),
 	Category(id: 1, name: "Embassies", selected: false),
@@ -31,16 +31,16 @@ class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 	Category(id: 10, name: "Other", selected: false)]
 	
 	@Published var amenities: [Amenities] = [
-		Amenities(id: 0, image: "newBuilding", name: "isNew", selected: false),
-	Amenities(id: 1, image: "shuttle", name: "isshuttle", selected: false),
-	Amenities(id: 2, image: "washroom", name: "isPublicWashrooms", selected: false),
-	Amenities(id: 3, image: "accessibility", name: "isAccessible", selected: false),
-	Amenities(id: 4, image: "freeParking", name: "isFreeParking", selected: false),
-	Amenities(id: 5, image: "bikeracks", name: "isBikeParking", selected: false),
-	Amenities(id: 6, image: "paidParking", name: "isPaidParking", selected: false),
-	Amenities(id: 7, image: "guidedTour", name: "isGuidedTour", selected: false),
-	Amenities(id: 8, image: "familyFriendly", name: "isFamilyFriendly", selected: false),
-	Amenities(id: 9, image: "ocTranspo", name: "isOCTranspoNearby", selected: false),
+		Amenities(id: 0, image: "newBuilding", name: "isNew", selected: false, newName: "New"),
+		Amenities(id: 1, image: "shuttle", name: "isshuttle", selected: false, newName: "Shuttle"),
+		Amenities(id: 2, image: "washroom", name: "isPublicWashrooms", selected: false, newName: "Public Washroom"),
+		Amenities(id: 3, image: "accessibility", name: "isAccessible", selected: false, newName: "Accessibility"),
+		Amenities(id: 4, image: "freeParking", name: "isFreeParking", selected: false, newName: "Free Parking"),
+		Amenities(id: 5, image: "bikeracks", name: "isBikeParking", selected: false, newName: "Bike Parking"),
+		Amenities(id: 6, image: "paidParking", name: "isPaidParking", selected: false, newName: "Paid Parking"),
+		Amenities(id: 7, image: "guidedTour", name: "isGuidedTour", selected: false, newName: "Guided Tour"),
+		Amenities(id: 8, image: "familyFriendly", name: "isFamilyFriendly", selected: false, newName: "Family Friendly"),
+		Amenities(id: 9, image: "ocTranspo", name: "isOCTranspoNearby", selected: false, newName: "Near OC Transpo"),
 	]
 	
 	var locationManager: CLLocationManager?
@@ -84,7 +84,7 @@ class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 	
 	/// Function to set a new array with locations
 	func setArrayLocation(){
-		for building in  buildingData[0].buildings{
+		for building in  buildingData[french].buildings{
 				let newLocation = CLLocationCoordinate2D(latitude: building.latitude, longitude: building.longitude)
 				let location = Location(name: building.name, coordinate: newLocation)
 				locations.append(location)
@@ -119,14 +119,14 @@ class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 	/// - Parameter favorite: array of favorites
 	/// - Returns: array of Buildings
 	func favoritesFilter(favorite: [Int]) -> [BuildingModel]{
-		return buildingData[0].buildings.filter{ element in
+		return buildingData[french].buildings.filter{ element in
 			favorite.contains(element.buildingId)
 		}
 	}
 	
 	
 	func mapFilter(mapElementName: String) -> BuildingModel?{
-		return buildingData[0].buildings.first{$0.name == mapElementName} ?? nil
+		return buildingData[french].buildings.first{$0.name == mapElementName} ?? nil
 		
 	}
 	
@@ -144,16 +144,16 @@ class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 		
 		switch filter {
 		case .none:
-			filteredData = buildingData[0].buildings
+			filteredData = buildingData[french].buildings
 		case .categories:
-			filteredData = buildingData[0].buildings.filter { edificio in
+			filteredData = buildingData[french].buildings.filter { edificio in
 				let categoriaSeleccionada = categories.first { $0.id == edificio.categoryId }
 				return categoriaSeleccionada?.selected ?? false
 			}
 		case .amenities:
 			let selectedAmenities = amenities.filter { $0.selected }
 			
-			filteredData = buildingData[0].buildings.filter { building in
+			filteredData = buildingData[french].buildings.filter { building in
 				selectedAmenities.allSatisfy { amenity in
 					let amenityName = amenity.name
 					
@@ -185,12 +185,12 @@ class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 			}
 		
 		case .search:
-			filteredData = buildingData[0].buildings.filter { $0.name.lowercased().contains(text.lowercased()) }
+			filteredData = buildingData[french].buildings.filter { $0.name.lowercased().contains(text.lowercased()) }
 			
 		case .categoiresAdnAmenities:
 			let selectedAmenities = amenities.filter { $0.selected }
 			
-			filteredData = buildingData[0].buildings.filter { building in
+			filteredData = buildingData[french].buildings.filter { building in
 				selectedAmenities.allSatisfy { amenity in
 					let amenityName = amenity.name
 					
@@ -222,7 +222,7 @@ class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 			}
 //			print(filteredData.count)
 			
-			filteredData = buildingData[0].buildings.filter { edificio in
+			filteredData = buildingData[french].buildings.filter { edificio in
 				let categoriaSeleccionada = categories.first { $0.id == edificio.categoryId }
 				return categoriaSeleccionada?.selected ?? false
 			}
