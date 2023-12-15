@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+//TODO: Revisar diseño
 struct ListRecommendationsView: View {
 	@EnvironmentObject var model: RecommendationModelView
 	
@@ -19,7 +19,6 @@ struct ListRecommendationsView: View {
 					Text(building.description)
 						.font(.caption2)
 				}
-			
 			}
 			.overlay{
 				if model.recommend.isEmpty {
@@ -34,6 +33,7 @@ struct ListRecommendationsView: View {
 				model.fetchAllRecommendations()
 			}
 			.navigationTitle("Buildings sent")
+			.background(Color.background)
 		}
     }
 }

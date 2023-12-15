@@ -123,19 +123,17 @@ class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 			favorite.contains(element.buildingId)
 		}
 	}
-	
-	
-	func mapFilter(mapElementName: String) -> BuildingModel?{
-		return buildingData[french].buildings.first{$0.name == mapElementName} ?? nil
-		
-	}
-	
 	func filterDataCategory(elementSelected: Category){
 		self.categories[elementSelected.id].selected.toggle()
 	}
 	
 	func filterDataAmenities(elementSelected: Amenities){
 		self.amenities[elementSelected.id].selected.toggle()
+	}
+	
+	func mapFilter(mapElementName: String) -> BuildingModel?{
+		return buildingData[french].buildings.first{$0.name == mapElementName} ?? nil
+		
 	}
 	
 	func filteredData(filter: FilterType, sort: SortType, text: String) -> [BuildingModel] {

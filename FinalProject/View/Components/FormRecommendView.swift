@@ -20,35 +20,30 @@ struct FormRecommendView: View {
 	@State var title = ""
 	@State var text = ""
 	
-    var body: some View {
+	var body: some View {
 		NavigationStack{
 			Form {
-			if(!networkMonitor.isConnected){
-				ContentUnavailableView{
-					Label("No Internet", systemImage: "wifi.slash")
-						.foregroundStyle(Color.accent)
-				} description: {
-					Text("You don't have internet connection")
-				}
-			} else{
-				
+				if(!networkMonitor.isConnected){
+					ContentUnavailableView{
+						Label("No Internet", systemImage: "wifi.slash")
+							.foregroundStyle(Color.accent)
+					} description: {
+						Text("You don't have internet connection")
+					}
+				} else{
 					Section(header: Text("Information")){
 						TextField("Name of the building", text: $newBuilding.name)
 						Picker(selection: $picker, label: Text("Category")) {
 							ForEach(modelData.categories, id: \.id){ element in
 								Text(element.name)
 							}
-							
-							
 						}
 					}
 					Section(header: Text("Description")){
 						TextField("Write a description of the building", text: $newBuilding.description)
 					}
-				
 					Button(action: {
 						newBuilding.category = String(picker)
-						
 						result = model.saveRecommendation(recommend: newBuilding)
 						print(result)
 						title = result ? "Sorry!" : "Thank you!"
@@ -65,11 +60,10 @@ struct FormRecommendView: View {
 						Text(text)
 					}
 				}
-				
 			}
-			
 			.navigationTitle("Recommendation")
+			.background(Color.background)
 		}
-    }
+	}
 }
 

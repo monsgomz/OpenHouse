@@ -20,19 +20,16 @@ struct RowFavoriteView: View {
 					.aspectRatio(contentMode: .fit)
 					.clipShape(RoundedRectangle(cornerRadius: 15))
 					.frame(width: 130, height: 80, alignment: .center)
-
 				VStack(alignment: .leading ,spacing: 10){
 					Text(favorite.name)
 						.textCase(.uppercase)
 						.font(.footnote)
-
 						.bold()
 					Text(favorite.address).font(.caption)
 					Text("\(modelData.Distance(other: CLLocationCoordinate2D(latitude: favorite.latitude, longitude: favorite.longitude)))KM from you")
 						.font(.caption2)
 				}
 				Spacer()
-				
 			}
 		}
     }

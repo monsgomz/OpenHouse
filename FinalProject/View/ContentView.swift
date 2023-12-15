@@ -12,6 +12,9 @@ struct ContentView: View {
 	@StateObject var modelData = BuildingModelView()
 	@State var model = RecommendationModelView()
 	@StateObject var networkMonitor = NetworkMonitor()
+	@State var tabSelection = 1
+	@State var tappedTwice:Bool = false
+
 	
     var body: some View {
 		TabView{

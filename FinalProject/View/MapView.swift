@@ -25,9 +25,12 @@ struct MapView: View {
 				}
 				UserAnnotation()
 				
-			}.onChange(of: selectedResult){
+			}
+			
+			.onChange(of: selectedResult){
 				elementSelected = modelData.mapFilter(mapElementName: selectedResult ?? "")
 			}
+			
 			.mapStyle(.standard(elevation: .realistic))
 			.safeAreaInset(edge: .bottom){
 				if selectedResult != nil && elementSelected != nil{
@@ -40,10 +43,8 @@ struct MapView: View {
 					
 				}
 				.clipShape(RoundedRectangle(cornerRadius: 20.0))
-				.frame(height: 200, alignment: .leading)
+				.frame(height: 240, alignment: .leading)
 				.background(Color.accent)
-				
-					
 				}
 			}
 			.mapControls{
@@ -52,8 +53,9 @@ struct MapView: View {
 				MapScaleView()
 			}
 			
-			
 		}
+		
+		
 		
 	}
 }

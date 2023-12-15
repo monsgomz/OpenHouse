@@ -6,9 +6,23 @@
 //
 
 import SwiftUI
-
+//TODO: Revisar diseño
 struct HousePreview: View {
 	var mapElement: BuildingModel?
+	
+	func dateFormat(date: String, includeDay: Bool = true) -> String {
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+		let dateFormatted = dateFormatter.date(from: date)!
+		
+		if includeDay {
+			dateFormatter.dateFormat = "EEEE d HH:mm"
+		} else {
+			dateFormatter.dateFormat = "HH:mm"
+		}
+		
+		return dateFormatter.string(from: dateFormatted)
+	}
 	
     var body: some View {
 		NavigationStack{ //TODO: Revisar!!
@@ -17,52 +31,48 @@ struct HousePreview: View {
 					Image(mapElement!.image.replacingOccurrences(of: ".jpg", with: ""))
 						.resizable()
 						.aspectRatio(contentMode: .fit)
-						.clipShape(RoundedRectangle(cornerRadius: 25.0))
-						.frame(width: 100, height: 100, alignment: .center)
+						.clipShape(RoundedRectangle(cornerRadius: 15.0))
+						.frame(width: 200, alignment: .center)
+			
 					Text(mapElement!.name)
 						.foregroundStyle(Color.background)
-						.font(.caption)
+						.font(.subheadline)
 						.bold()
 				}
 				VStack{
 					Text("Open Hours")
 						.foregroundStyle(Color.background)
-						.font(.caption)
+						.font(.subheadline)
 						.bold()
+						.padding(.top, 10)
 					if(mapElement!.isOpenSaturday){
-						Text("Saturday: ")
+						Text(dateFormat(date: mapElement!.saturdayStart!))
 							.foregroundStyle(Color.background)
-							.font(.footnote)
-						Text(mapElement!.saturdayStart!)
+							.font(.caption)
+						Text("-")
+							.font(.caption)
+						Text(dateFormat(date: mapElement!.saturdayClose!, includeDay: false))
 							.foregroundStyle(Color.background)
-							.font(.footnote)
-						Text(mapElement!.saturdayClose!)
-							.foregroundStyle(Color.background)
-							.font(.footnote)
+							.font(.caption)
 						
 					} else if(mapElement!.isOpenSunday){
-						Text("Sunday: ")
-							.font(.footnote)
+						Text(dateFormat(date: mapElement!.sundayStart!))
 							.foregroundStyle(Color.background)
-							.font(.footnote)
-						Text(mapElement!.sundayStart!)
+							.font(.caption)
+						Text("-")
+							.font(.caption)
+						Text(dateFormat(date: mapElement!.sundayClose!, includeDay: false))
 							.foregroundStyle(Color.background)
-							.font(.footnote)
-						Text(mapElement!.sundayClose!)
-							.foregroundStyle(Color.background)
-							.font(.footnote)
+							.font(.caption)
 					} else {
 						Text("Is close")
 					}
+					Spacer()
 				}
 			}
 			
 		}
-		
-//		.padding()
-		.clipShape(RoundedRectangle(cornerRadius: 20.0))
-//		.background(Color.accent)
-//		.clipShape(RoundedRectangle(cornerRadius: 20.0))
+		.clipShape(RoundedRectangle(cornerRadius: 10.0))
 		.frame(width: 380)
 		
 		

@@ -7,7 +7,7 @@
 
 import SwiftUI
 import MapKit
-
+//TODO: ajustar diseño
 struct DetailsView: View {
 	
 	var info: BuildingModel
@@ -18,54 +18,55 @@ struct DetailsView: View {
 	@State var showSafari: Bool = false
 	@State var isViewed = false
 	
-
-	func dateFormat(date: String) -> String{
-		// Create Date Formatter
+	func dateFormat(date: String, includeDay: Bool = true) -> String {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
 		let dateFormatted = dateFormatter.date(from: date)!
-		dateFormatter.dateFormat = "EEEE d HH:mm"
-		let formattedString = dateFormatter.string(from: dateFormatted)
-
-		return formattedString
 		
+		if includeDay {
+			dateFormatter.dateFormat = "EEEE d HH:mm"
+		} else {
+			dateFormatter.dateFormat = "HH:mm"
+		}
+		
+		return dateFormatter.string(from: dateFormatted)
 	}
 	
-    var body: some View {
+	var body: some View {
 		NavigationStack{
 			ScrollView{
 				ZStack(alignment: .bottomTrailing){
-					
-				Image(info.image.replacingOccurrences(of: ".jpg", with: ""))
-					.resizable()
-					.aspectRatio(contentMode: .fit)
-					.clipShape(RoundedRectangle(cornerRadius: 25.0))
-					.frame(width: 380, alignment: .center)
-					.shadow(radius: 10)
-					.padding(8)
-					.overlay(alignment: .topTrailing){
-						if(info.isNew){
-							Image("nuevo-2")
-								.resizable()
-								.aspectRatio(contentMode: .fit)
-								.foregroundStyle(Color.white)
-								.frame(width: 40)
-								.padding()
+					Image(info.image.replacingOccurrences(of: ".jpg", with: ""))
+						.resizable()
+						.aspectRatio(contentMode: .fit)
+						.clipShape(RoundedRectangle(cornerRadius: 25.0))
+						.frame(width: 380, alignment: .center)
+						.shadow(radius: 10)
+						.padding(8)
+						.overlay(alignment: .topTrailing){
+							if(info.isNew){
+								Image("nuevo-2")
+									.resizable()
+									.aspectRatio(contentMode: .fit)
+									.foregroundStyle(Color.white)
+									.shadow(color: .black, radius: 2, x: 0, y: 0)
+									.frame(width: 40)
+									.padding()
+							}
 						}
-					}
 					Text(info.imageDescription)
 						.font(.caption)
 						.padding()
 						.background(Color.accent)
-					.clipShape(RoundedRectangle(cornerRadius: 20))
-					.foregroundStyle(Color.white)
-					.frame(width: 370)
-					.offset(x: -5, y: 25)
-					.padding()
+						.clipShape(RoundedRectangle(cornerRadius: 20))
+						.foregroundStyle(Color.white)
+						.frame(width: 380)
+						.offset(x: -5, y: 25)
+						.padding(.bottom, 30)
 					
-			}
+				}
 				//Name information
-				HStack(spacing: 10){
+				HStack(alignment: .top, spacing: 10){
 					ShareLink("", item: info.name, subject: Text("Look this building!!"), message: Text("I want to share with you this important building."))
 					Text(info.name)
 						.multilineTextAlignment(.leading)
@@ -73,13 +74,13 @@ struct DetailsView: View {
 						.bold()
 					Spacer()
 				}
-				.frame(width: 360, height: 30, alignment: .center)
-				.padding(10)
+				.frame(width: 360, height: 30, alignment: .top)
+//				.padding(.bottom, 8)
 				
 				HStack{
 					CategoryView(info: info)
-					
 				}
+				.padding()
 				// Open Hours
 				VStack(alignment: .leading, spacing: 10){
 					Text("Open Hours")
@@ -88,33 +89,28 @@ struct DetailsView: View {
 						.padding(.top, 10)
 					HStack(spacing: 8){
 						if(info.isOpenSaturday){
-							VStack{
-								Text("Saturday: ")
-								Text("\(dateFormat(date:info.saturdayStart!))")
-								Text("To")
-								Text("\(dateFormat(date:info.saturdayClose!))")
-								
-							}
 							
-						} 
-						if(info.isOpenSunday){
-							VStack{
-								Text("Sunday: ")
-								Text("\(dateFormat(date:info.sundayStart!))")
-								Text("To")
-								Text("\(dateFormat(date:info.sundayClose!))")
-							}
-						} 
-						
+							Text("\(dateFormat(date:info.saturdayStart!))")
+								.font(.callout)
+							Text("-")
+							Text("\(dateFormat(date:info.saturdayClose!, includeDay: false))")
+						}
 					}
-					.padding(10)
+					HStack(spacing: 8){
+						if(info.isOpenSunday){
+							
+							Text("\(dateFormat(date:info.sundayStart!))")
+							Text("-")
+							Text("\(dateFormat(date:info.sundayClose!, includeDay: false))")
+						}
+					}
+					Spacer()
 				}
 				.padding(15)
-				.frame(width: 360, height: 160, alignment: .leading)
+				.frame(width: 360, height: 125, alignment: .leading)
 				.background(Color.white)
 				.clipShape(RoundedRectangle(cornerRadius: 20.0))
 				.shadow(radius: 10)
-//				.padding(10)
 				
 				Text("Description")
 					.font(.title2)
@@ -124,7 +120,7 @@ struct DetailsView: View {
 					.multilineTextAlignment(.leading)
 					.lineLimit(isViewed ? 20 : 5)
 					.frame(width: 360, alignment: .leading)
-//					.padding(15)
+				
 				HStack{
 					Spacer()
 					Button(isViewed ? "Read Less" : "Read More" ) {
@@ -148,7 +144,6 @@ struct DetailsView: View {
 							})
 					}
 					.padding(10)
-					
 				}
 				Text("Location")
 					.font(.title2)
@@ -167,13 +162,11 @@ struct DetailsView: View {
 										maximumDistance: 4500)){
 					Marker(info.name,coordinate: CLLocationCoordinate2D(latitude: info.latitude, longitude:  info.longitude))
 				}
-				.clipShape(RoundedRectangle(cornerRadius: 25.0))
-				.frame(width: 360, height: 360, alignment: .center)
-				.padding(.bottom, 20)
+										.clipShape(RoundedRectangle(cornerRadius: 25.0))
+										.frame(width: 360, height: 360, alignment: .center)
+										.padding(.bottom, 20)
 				Spacer()
-				
 			}
-
 		}
 		.navigationTitle("Building details")
 		.toolbar{
@@ -181,8 +174,8 @@ struct DetailsView: View {
 				FavoriteButtonView(id: info.buildingId, isSet: isSet)
 			}
 		}
-
-    }
+		
+	}
 }
 
 //#Preview {
@@ -191,9 +184,9 @@ struct DetailsView: View {
 
 struct CategoryView: View {
 	var info: BuildingModel
-
-	var body: some View {
 	
+	var body: some View {
+		
 		Text(info.category)
 			.font(.caption)
 			.foregroundStyle(Color.white)
@@ -222,27 +215,25 @@ struct AmenitiesView: View {
 						.aspectRatio(contentMode: .fit)
 						.frame(width: 30, height: 30, alignment: .center)
 				}
-//			}
-//				HStack {
-//					Spacer()
-					if(checkAmenities().count > 5){
-						DisclosureGroup("More") {
-							HStack{
-								ForEach(amenities.suffix(from: 5), id: \.self) { element in
-									
-									Image(element).resizable()
-										.aspectRatio(contentMode: .fit)
-										.frame(width: 30, height: 30, alignment: .center)
-								}
+				
+				if(checkAmenities().count > 5){
+					DisclosureGroup("More") {
+						HStack{
+							ForEach(amenities.suffix(from: 5), id: \.self) { element in
+								
+								Image(element).resizable()
+									.aspectRatio(contentMode: .fit)
+									.frame(width: 30, height: 30, alignment: .center)
 							}
 						}
-						
 					}
+					
 				}
-				
 			}
-			.frame(width: 360, height: 80, alignment: .center)
-			.padding()
+			
+		}
+		.frame(width: 360, height: 80, alignment: .center)
+		.padding()
 	}
 	
 	func checkAmenities() -> [String]{
@@ -259,8 +250,6 @@ struct AmenitiesView: View {
 			info.isFamilyFriendly ? "familyFriendly" : "",
 			info.isOCTranspoNearby ? "ocTranspo" : ""
 		].filter { !$0.isEmpty }
-
+		
 	}
-	
-	
 }

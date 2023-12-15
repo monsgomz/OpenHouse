@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//TODO: ajustar diseño
 struct HomeView: View {
 	
 	@EnvironmentObject var modelData: BuildingModelView
@@ -25,7 +26,6 @@ struct HomeView: View {
 		}
 	}
 	
-	
 	var body: some View {
 		NavigationStack{
 			ScrollView {
@@ -37,10 +37,11 @@ struct HomeView: View {
 					label:{
 						CardHomeView(building: data)
 					}
-				}
+					}
 				}
 				.padding()
 			}
+			.background(Color.background)
 			.searchable(text: $text, prompt: "Look for a building")
 			.navigationTitle("Home")
 			.toolbar{
@@ -56,9 +57,7 @@ struct HomeView: View {
 				FilterView(isShowing: $isShowing, filter: $filter, sort: $sort, alphabetically: $alphabetically, distance: $distance)
 					.presentationContentInteraction(.scrolls)
 			})
-
 		}
-		
 	}
 }
 

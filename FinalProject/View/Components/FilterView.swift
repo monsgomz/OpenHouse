@@ -31,7 +31,6 @@ struct FilterView: View {
 						isOn: $distance
 					)
 				}
-				
 				Section(header: Text("By categories")) {
 					ForEach(modelData.categories, id: \.id) { element in
 						HStack {
@@ -45,7 +44,6 @@ struct FilterView: View {
 						}
 					}
 				}
-				
 				Section(header: Text("By amenities")) {
 					ForEach(modelData.amenities, id:\.id) { element in
 						HStack {
@@ -67,13 +65,12 @@ struct FilterView: View {
 				}
 				
 			}
+			.background(Color.background)
 			.navigationTitle("Filter")
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar{
 				ToolbarItem{
 					Button("Done"){
-						print(modelData.categories.first{$0.selected} ?? "none")
-						print(modelData.amenities.first{$0.selected}  ?? "none")
 						
 						if(modelData.categories.first{$0.selected} != nil && modelData.amenities.first{$0.selected} != nil){
 							filter = .categoiresAdnAmenities

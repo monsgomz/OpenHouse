@@ -7,7 +7,7 @@
 
 import SwiftUI
 import MapKit
-
+//TODO: Revisar favoritos
 struct CardHomeView: View {
 	
 	var building: BuildingModel
@@ -24,23 +24,20 @@ struct CardHomeView: View {
 				.clipShape(RoundedRectangle(cornerRadius: 25.0))
 				.padding(.horizontal, 8)
 				.overlay(alignment: .topTrailing){
-//					if (modelData.isFavorite(id: building.buildingId) != nil){
-//						Image(systemName: "heart.fill")
-//							.foregroundStyle(Color.red)
-//							.padding()
-//					}
+
 					//TODO: Revisar funcionalidad!
 					FavoriteButtonView(id: building.buildingId, isSet: isSet)
-						
 				}
 			//Caja descripcion
 			VStack(spacing: 0){
 				HStack(alignment: .center, spacing: 8){
 					ShareLink("", item: building.name, subject: Text("Look this building!!"), message: Text("I want to share with you this important building."))
+						.foregroundStyle(Color.background)
 						.padding(.horizontal, 10)
 					Text(building.name)
 						.textCase(.uppercase)
 						.font(.caption)
+						.foregroundStyle(Color.background)
 				}
 				.frame(width: 310, height: 40, alignment: .leading)
 				.padding(5)
@@ -49,16 +46,16 @@ struct CardHomeView: View {
 					Text(building.address)
 						.font(.footnote)
 						.fontWeight(.bold)
+						.foregroundStyle(Color.background)
 					Spacer()
 					Text("\(modelData.Distance(other: CLLocationCoordinate2D(latitude: building.latitude, longitude: building.longitude))) from you")
 						.font(.footnote)
+						.foregroundStyle(Color.background)
 				}
 				.padding(.horizontal, 5)
 				.frame(width: 310, height: 40, alignment: .leading)
-				
 			}
-			.background(Color.white)
-
+			.background(Color.accent)
 			.clipShape(RoundedRectangle(cornerRadius: 25.0))
 			.offset(x:0, y: -30.0)
 			.shadow(radius: 10)

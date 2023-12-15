@@ -6,13 +6,12 @@
 //
 
 import SwiftUI
-
+//TODO: Revisar si se pueden borrar elementos
 struct SavedView: View {
 	@EnvironmentObject var modelData: BuildingModelView
 	@State var elementSelected: Int = 0
 	
-	
-    var body: some View {
+	var body: some View {
 		let favoritesArray = modelData.favoritesFilter(favorite: modelData.favoelements)
 		NavigationStack{
 			List{
@@ -21,12 +20,11 @@ struct SavedView: View {
 					NavigationLink{
 						DetailsView(info: element)
 					}
-					label: {
+				label: {
 					RowFavoriteView(favorite: element)
-					}
+				}
 					
 				}
-//
 			}
 			.overlay{
 				if favoritesArray.isEmpty {
@@ -39,11 +37,8 @@ struct SavedView: View {
 				}
 			}
 			.navigationTitle("Favorites")
-
-			
 		}
+		.background(Color.green)
 		
-		
-    }
-
+	}
 }
