@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct AboutMeView: View {
+	
+	@State var showSafari: Bool = false
+	@State var isViewed = false
+	
     var body: some View {
 		NavigationStack {
 			ScrollView{
@@ -44,27 +48,43 @@ struct AboutMeView: View {
 						.padding()
 					HStack {
 						
-						Text("• Swift")
-						Text("• SwiftUI")
-						Text("• Flutter")
-						Text("• React Native")
+						Text("• Watercolor painting")
+						Text("• Read books")
+						Text("• Dog lover")
+						Text("• Videogames")
 					}
 				}
-				.frame(width: 360, alignment: .leading)
-				.background(Color.white)
+				.frame(width: 320, alignment: .leading) //TODO: REVISAR
 				.padding(8)
+				.border(.accent, width: 2)
 				.clipShape(RoundedRectangle(cornerRadius: 20.0))
-				.shadow(radius: 10)
+				
 				
 				Text("Contact & some of my projects")
 					.font(.headline)
 					.padding()
-				HStack{
-					Image(systemName: "laptopcomputer")
-					Image(systemName: "envelope.badge")
-					Image(systemName: "laptopcomputer")
-					Image(systemName: "laptopcomputer")
-				}
+//					Image(systemName: "envelope.badge")
+					Label("montserrat.ga95@gmail.com", systemImage: "envelope.badge")
+					.padding(8)
+				
+				Label("GitHub", systemImage: "laptopcomputer")
+						.onTapGesture {
+							showSafari.toggle()
+						}
+						.fullScreenCover(isPresented: $showSafari, content: {
+							SFSafariViewWrapper(url: URL(string: "https://github.com/monsgomz")!)
+						})
+						.padding(8)
+				
+				Label("Dribble", systemImage: "laptopcomputer")
+						.onTapGesture {
+							showSafari.toggle()
+						}
+						.fullScreenCover(isPresented: $showSafari, content: {
+							SFSafariViewWrapper(url: URL(string: "https://dribbble.com/Monzgomz/likes")!)
+						})
+						.padding(10)
+				
 
 				
 			}

@@ -25,7 +25,6 @@ struct CardHomeView: View {
 				.padding(.horizontal, 8)
 				.overlay(alignment: .topTrailing){
 
-					//TODO: Revisar funcionalidad!
 					FavoriteButtonView(id: building.buildingId, isSet: isSet)
 				}
 			//Caja descripcion

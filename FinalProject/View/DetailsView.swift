@@ -56,6 +56,7 @@ struct DetailsView: View {
 						}
 					Text(info.imageDescription)
 						.font(.caption)
+						.foregroundStyle(Color.background)
 						.padding()
 						.background(Color.accent)
 						.clipShape(RoundedRectangle(cornerRadius: 20))
@@ -108,9 +109,10 @@ struct DetailsView: View {
 				}
 				.padding(15)
 				.frame(width: 360, height: 125, alignment: .leading)
-				.background(Color.white)
+//				.foregroundStyle(Color.background)
+				.border(.accent, width: 2)
 				.clipShape(RoundedRectangle(cornerRadius: 20.0))
-				.shadow(radius: 10)
+				
 				
 				Text("Description")
 					.font(.title2)
@@ -189,10 +191,10 @@ struct CategoryView: View {
 		
 		Text(info.category)
 			.font(.caption)
-			.foregroundStyle(Color.white)
+			.foregroundStyle(Color.accent)
 			.bold()
 			.frame(width: 210, height: 40, alignment: .center)
-			.background(Color("ColorLightGrey"))
+			.background(Color("greyColor"))
 			.clipShape(RoundedRectangle(cornerRadius: 25.0))
 			.padding(5)
 	}

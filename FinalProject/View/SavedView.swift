@@ -8,15 +8,25 @@
 import SwiftUI
 //TODO: Revisar si se pueden borrar elementos
 struct SavedView: View {
+	
 	@EnvironmentObject var modelData: BuildingModelView
 	@State var elementSelected: Int = 0
+	@State var text = ""
+	
+	
+	var filteredSavedBuildings: [BuildingModel] {
+		if text.isEmpty {
+			return modelData.favoritesFilter(favorite: modelData.favoelements)
+		} else {
+			return modelData.favoritesFilter(favorite: modelData.favoelements).filter { $0.name.lowercased().contains(text.lowercased()) }
+			}
+		}
+	
 	
 	var body: some View {
-		let favoritesArray = modelData.favoritesFilter(favorite: modelData.favoelements)
 		NavigationStack{
 			List{
-				ForEach(favoritesArray, id: \.buildingId){ element in
-					
+				ForEach(filteredSavedBuildings, id: \.buildingId){ element in
 					NavigationLink{
 						DetailsView(info: element)
 					}
@@ -27,7 +37,7 @@ struct SavedView: View {
 				}
 			}
 			.overlay{
-				if favoritesArray.isEmpty {
+				if filteredSavedBuildings.isEmpty {
 					ContentUnavailableView{
 						Label("No Favorites", systemImage: "tray.fill")
 							.foregroundStyle(Color.accent)
@@ -36,6 +46,7 @@ struct SavedView: View {
 					}
 				}
 			}
+			.searchable(text: $text, prompt: "Look for a building saved")
 			.navigationTitle("Favorites")
 		}
 		.background(Color.green)
