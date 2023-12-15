@@ -57,20 +57,22 @@ struct Location: Identifiable {
 	let id = UUID()
 	let name: String
 	let coordinate: CLLocationCoordinate2D
+	let icon: String
 }
 
 struct Category {
-	var id: Int
-	var name: String
+	let id: Int
+	let name: String
+	let icon: String
 	var selected: Bool
 }
 
 struct Amenities {
-	var id: Int
-	var image: String
-	var name: String
+	let id: Int
+	let image: String
+	let name: String
 	var selected: Bool
-	var newName: String
+	let newName: String
 }
 
 enum FilterType {

@@ -428,69 +428,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "08758FA2-51F8-4286-8F15-75B5F2A82F6D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FinalProject/View/Components/FilterView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "body"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "08758FA2-51F8-4286-8F15-75B5F2A82F6D - 50d83a758605015b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; SwiftUI.Button&lt;SwiftUI.Text&gt; in closure #2 () -&gt; &lt;&lt;opaque return type of static SwiftUI.ToolbarContentBuilder.buildBlock&lt;&#x3c4;_0_0 where &#x3c4;_0_0: SwiftUI.ToolbarContent&gt;(&#x3c4;_0_0) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.toolbar&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ToolbarContent&gt;(content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0 in FinalProject.FilterView.body.getter : some"
-                  moduleName = "FinalProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/monzgomz/Documents/Semestre3/iOSClass/FinalProjectX/FinalProject/View/Components/FilterView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "75"
-                  endingLineNumber = "75"
-                  offsetFromSymbolStart = "60">
-               </Location>
-               <Location
-                  uuid = "08758FA2-51F8-4286-8F15-75B5F2A82F6D - 793aba959003e031"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (FinalProject.Category) -&gt; Swift.Bool in closure #1 () -&gt; () in closure #1 () -&gt; SwiftUI.Button&lt;SwiftUI.Text&gt; in closure #2 () -&gt; &lt;&lt;opaque return type of static SwiftUI.ToolbarContentBuilder.buildBlock&lt;&#x3c4;_0_0 where &#x3c4;_0_0: SwiftUI.ToolbarContent&gt;(&#x3c4;_0_0) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.toolbar&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ToolbarContent&gt;(content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0 in FinalProject.FilterView.body.getter : some"
-                  moduleName = "FinalProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/monzgomz/Documents/Semestre3/iOSClass/FinalProjectX/FinalProject/View/Components/FilterView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "75"
-                  endingLineNumber = "75"
-                  offsetFromSymbolStart = "16">
-               </Location>
-               <Location
-                  uuid = "08758FA2-51F8-4286-8F15-75B5F2A82F6D - 585c84b0ad638855"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (FinalProject.Amenities) -&gt; Swift.Bool in implicit closure #1 () throws -&gt; Swift.Bool in closure #1 () -&gt; () in closure #1 () -&gt; SwiftUI.Button&lt;SwiftUI.Text&gt; in closure #2 () -&gt; &lt;&lt;opaque return type of static SwiftUI.ToolbarContentBuilder.buildBlock&lt;&#x3c4;_0_0 where &#x3c4;_0_0: SwiftUI.ToolbarContent&gt;(&#x3c4;_0_0) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.toolbar&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ToolbarContent&gt;(content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0 in FinalProject.FilterView.body.getter : some"
-                  moduleName = "FinalProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/monzgomz/Documents/Semestre3/iOSClass/FinalProjectX/FinalProject/View/Components/FilterView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "75"
-                  endingLineNumber = "75"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "D938BA42-2E13-4EC0-9414-CBF2FEDE54B9"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -534,6 +471,70 @@
                   offsetFromSymbolStart = "132">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "269E067A-4265-4CA3-B4AF-89499BC1D404"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FinalProject/View/MapView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "269E067A-4265-4CA3-B4AF-89499BC1D404 - 5c99b21ca4a20d98"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; _MapKit_SwiftUI.TupleMapContent&lt;(SwiftUI.ForEach&lt;Swift.Array&lt;FinalProject.Location&gt;, Foundation.UUID, &lt;&lt;opaque return type of _MapKit_SwiftUI.MapContent.tag&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Hashable&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;, _MapKit_SwiftUI.UserAnnotation&lt;_MapKit_SwiftUI.DefaultUserAnnotationContent&gt;)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.mapControls&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(() -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0 in FinalProject.MapView.body.getter : some"
+                  moduleName = "FinalProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/monzgomz/Documents/Semestre3/iOSClass/FinalProjectX/FinalProject/View/MapView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "288">
+               </Location>
+               <Location
+                  uuid = "269E067A-4265-4CA3-B4AF-89499BC1D404 - 142a2c9072ee8c9c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (FinalProject.Location) -&gt; &lt;&lt;opaque return type of _MapKit_SwiftUI.MapContent.tag&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Hashable&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; _MapKit_SwiftUI.TupleMapContent&lt;(SwiftUI.ForEach&lt;Swift.Array&lt;FinalProject.Location&gt;, Foundation.UUID, &lt;&lt;opaque return type of _MapKit_SwiftUI.MapContent.tag&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Hashable&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;, _MapKit_SwiftUI.UserAnnotation&lt;_MapKit_SwiftUI.DefaultUserAnnotationContent&gt;)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.mapControls&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(() -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0 in FinalProject.MapView.body.getter : some"
+                  moduleName = "FinalProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/monzgomz/Documents/Semestre3/iOSClass/FinalProjectX/FinalProject/View/MapView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "204">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CFD0E05E-7F3E-47E2-A37A-96E83ED81AEA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FinalProject/View/MapView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

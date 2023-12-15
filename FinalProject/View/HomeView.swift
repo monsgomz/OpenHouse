@@ -41,7 +41,7 @@ struct HomeView: View {
 				}
 				.padding()
 			}
-			.background(Color.background)
+//			.background(Color.background)
 			.searchable(text: $text, prompt: "Look for a building")
 			.navigationTitle("Home")
 			.toolbar{

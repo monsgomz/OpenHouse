@@ -18,17 +18,17 @@ class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 	@Published var favoelements: [Int] = []
 	@Published var french: Int = 0
 	@Published var categories: [Category] = [
-		Category(id: 0, name: "Religious buildings", selected: false),
-	Category(id: 1, name: "Embassies", selected: false),
-	Category(id: 2, name: "Government buildings", selected: false),
-	Category(id: 3, name: "Functional buildings", selected: false),
-	Category(id: 4, name: "Galleries and Theatres", selected: false),
-	Category(id: 5, name: "Academic Institutions", selected: false),
-	Category(id: 6, name: "Sports and Leisure buildings", selected: false),
-	Category(id: 7, name: "Community and/or Care centres", selected: false),
-	Category(id: 8, name: "Business and/or Foundations", selected: false),
-	Category(id: 9, name: "Museums, Archives and Historic Sites", selected: false),
-	Category(id: 10, name: "Other", selected: false)]
+		Category(id: 0, name: "Religious buildings", icon: "newReligionHandsFilter", selected: false),
+		Category(id: 1, name: "Embassies", icon: "embassyFilter", selected: false),
+		Category(id: 2, name: "Government buildings", icon: "governmentBuildingsFilter", selected: false),
+		Category(id: 3, name: "Functional buildings", icon: "functionalFilter", selected: false),
+		Category(id: 4, name: "Galleries and Theatres", icon: "galleriresFilter", selected: false),
+		Category(id: 5, name: "Academic Institutions", icon: "academicsFilter", selected: false),
+		Category(id: 6, name: "Sports and Leisure buildings", icon: "sportsFilter", selected: false),
+		Category(id: 7, name: "Community and/or Care centres", icon: "communityFilter", selected: false),
+		Category(id: 8, name: "Business and/or Foundations", icon: "businessFilter", selected: false),
+		Category(id: 9, name: "Museums, Archives and Historic Sites", icon: "museumsFilter", selected: false),
+		Category(id: 10, name: "Other", icon: "otherFilter", selected: false)]
 	
 	@Published var amenities: [Amenities] = [
 		Amenities(id: 0, image: "newBuilding", name: "isNew", selected: false, newName: "New"),
@@ -86,7 +86,7 @@ class BuildingModelView: NSObject, ObservableObject, CLLocationManagerDelegate {
 	func setArrayLocation(){
 		for building in  buildingData[french].buildings{
 				let newLocation = CLLocationCoordinate2D(latitude: building.latitude, longitude: building.longitude)
-				let location = Location(name: building.name, coordinate: newLocation)
+			let location = Location(name: building.name, coordinate: newLocation, icon: categories[building.categoryId].icon)
 				locations.append(location)
 			}
 	}

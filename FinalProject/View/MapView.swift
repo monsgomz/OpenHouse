@@ -20,7 +20,7 @@ struct MapView: View {
 		NavigationStack{
 			Map(position: $position, selection: $selectedResult){
 				ForEach(modelData.locations){ element in
-					Marker(element.name, systemImage: "house.and.flag.fill" ,coordinate: element.coordinate)
+					Marker(element.name,image: element.icon, coordinate: element.coordinate)
 						.tag(element.name)
 				}
 				UserAnnotation()
@@ -42,9 +42,10 @@ struct MapView: View {
 						.shadow(radius: 10)
 					
 				}
-				.clipShape(RoundedRectangle(cornerRadius: 20.0))
+				
 				.frame(height: 240, alignment: .leading)
 				.background(Color.accent)
+				.clipShape(RoundedRectangle(cornerRadius: 20.0))
 				}
 			}
 			.mapControls{

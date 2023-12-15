@@ -35,6 +35,11 @@ struct FilterView: View {
 					ForEach(modelData.categories, id: \.id) { element in
 						HStack {
 							Image(systemName: element.selected ? "circle.inset.filled" : "circlebadge")
+							Image(element.icon)
+								.resizable()
+								.aspectRatio(contentMode: .fit)
+								.frame(width: 20)
+								.padding(.trailing, 8)
 							Text(element.name)
 							Spacer()
 						}
@@ -71,7 +76,6 @@ struct FilterView: View {
 			.toolbar{
 				ToolbarItem{
 					Button("Done"){
-						
 						if(modelData.categories.first{$0.selected} != nil && modelData.amenities.first{$0.selected} != nil){
 							filter = .categoiresAdnAmenities
 						} else if(modelData.categories.first{$0.selected} != nil){

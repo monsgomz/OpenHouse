@@ -27,27 +27,35 @@ struct AboutMeView: View {
 					
 				Text("Motivated by mobile development, she is studying a diploma in mobile design and development allowing her to find her passion for application development.")
 					.padding()
-				Text("Technologies:")
-					.font(.headline)
-					.padding()
-				HStack {
+				VStack{
+					Text("Technologies:")
+						.font(.headline)
+						.padding()
+					HStack {
+						
+						Text("• Swift")
+						Text("• SwiftUI")
+						Text("• Flutter")
+						Text("• React Native")
+					}
 					
-					Text("• Swift")
-					Text("• SwiftUI")
-					Text("• Flutter")
-					Text("• React Native")
+					Text("Hobbies:")
+						.font(.headline)
+						.padding()
+					HStack {
+						
+						Text("• Swift")
+						Text("• SwiftUI")
+						Text("• Flutter")
+						Text("• React Native")
+					}
 				}
-
-				Text("Hobbies:")
-					.font(.headline)
-					.padding()
-				HStack {
-					
-					Text("• Swift")
-					Text("• SwiftUI")
-					Text("• Flutter")
-					Text("• React Native")
-				}
+				.frame(width: 360, alignment: .leading)
+				.background(Color.white)
+				.padding(8)
+				.clipShape(RoundedRectangle(cornerRadius: 20.0))
+				.shadow(radius: 10)
+				
 				Text("Contact & some of my projects")
 					.font(.headline)
 					.padding()
