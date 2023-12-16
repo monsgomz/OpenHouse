@@ -3,7 +3,7 @@
 
 Welcome to the Ottawa Building Explorer project! This iOS application allows users to explore a curated list of buildings in Ottawa that are open to the public.
 
-
+![Houses](houses.png)
 ## Features
 
 - Building list
