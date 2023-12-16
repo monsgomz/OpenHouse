@@ -40,7 +40,7 @@ struct AboutMeView: View {
 						Text("• Swift")
 						Text("• SwiftUI")
 						Text("• Flutter")
-						Text("• React Native")
+
 					}
 					
 					Text("Hobbies:")
@@ -50,6 +50,9 @@ struct AboutMeView: View {
 						
 						Text("• Watercolor painting")
 						Text("• Read books")
+						
+					}
+					HStack{
 						Text("• Dog lover")
 						Text("• Videogames")
 					}
@@ -63,7 +66,7 @@ struct AboutMeView: View {
 				Text("Contact & some of my projects")
 					.font(.headline)
 					.padding()
-//					Image(systemName: "envelope.badge")
+//			
 					Label("montserrat.ga95@gmail.com", systemImage: "envelope.badge")
 					.padding(8)
 				
@@ -84,9 +87,6 @@ struct AboutMeView: View {
 							SFSafariViewWrapper(url: URL(string: "https://dribbble.com/Monzgomz/likes")!)
 						})
 						.padding(10)
-				
-
-				
 			}
 			.navigationTitle("About Me")
 			

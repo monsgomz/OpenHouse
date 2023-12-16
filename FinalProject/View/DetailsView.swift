@@ -218,19 +218,20 @@ struct AmenitiesView: View {
 						.frame(width: 30, height: 30, alignment: .center)
 				}
 				
-				if(checkAmenities().count > 5){
-					DisclosureGroup("More") {
-						HStack{
-							ForEach(amenities.suffix(from: 5), id: \.self) { element in
-								
-								Image(element).resizable()
-									.aspectRatio(contentMode: .fit)
-									.frame(width: 30, height: 30, alignment: .center)
-							}
+				
+			}
+			if(checkAmenities().count > 5){
+				DisclosureGroup("More") {
+					HStack{
+						ForEach(amenities.suffix(from: 5), id: \.self) { element in
+							
+							Image(element).resizable()
+								.aspectRatio(contentMode: .fit)
+								.frame(width: 30, height: 30, alignment: .center)
 						}
 					}
-					
 				}
+				
 			}
 			
 		}
