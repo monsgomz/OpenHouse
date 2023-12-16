@@ -57,16 +57,17 @@ struct AboutMeView: View {
 						Text("• Videogames")
 					}
 				}
-				.frame(width: 320, alignment: .leading) //TODO: REVISAR
+				.frame(width: 320, alignment: .leading)
 				.padding(8)
-				.border(.accent, width: 2)
-				.clipShape(RoundedRectangle(cornerRadius: 20.0))
+				.overlay( 
+					RoundedRectangle(cornerRadius: 20)
+						.stroke(.accent, lineWidth: 2)
+				)
 				
 				
 				Text("Contact & some of my projects")
 					.font(.headline)
 					.padding()
-//			
 					Label("montserrat.ga95@gmail.com", systemImage: "envelope.badge")
 					.padding(8)
 				

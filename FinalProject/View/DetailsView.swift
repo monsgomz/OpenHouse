@@ -75,9 +75,7 @@ struct DetailsView: View {
 						.bold()
 					Spacer()
 				}
-				.frame(width: 360, height: 30, alignment: .top)
-//				.padding(.bottom, 8)
-				
+				.frame(width: 360, height: 30, alignment: .top)				
 				HStack{
 					CategoryView(info: info)
 				}
@@ -109,9 +107,10 @@ struct DetailsView: View {
 				}
 				.padding(15)
 				.frame(width: 360, height: 125, alignment: .leading)
-//				.foregroundStyle(Color.background)
-				.border(.accent, width: 2)
-				.clipShape(RoundedRectangle(cornerRadius: 20.0))
+				.overlay( 
+					RoundedRectangle(cornerRadius: 20)
+						.stroke(.accent, lineWidth: 2)
+				)
 				
 				
 				Text("Description")
