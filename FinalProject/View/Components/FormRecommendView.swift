@@ -53,7 +53,7 @@ struct FormRecommendView: View {
 					}) {
 						Label("Save", systemImage: "paperplane.fill")
 					}
-					.disabled(newBuilding.name.isEmpty || newBuilding.description.isEmpty)
+					.disabled(newBuilding.name == "" || newBuilding.description == "")
 					.alert(title, isPresented: $alert){
 						Button("OK", action: {self.presentationMode.wrappedValue.dismiss()})
 					} message: {
