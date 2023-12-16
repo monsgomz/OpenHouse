@@ -12,7 +12,7 @@ struct HousePreview: View {
 	
 	
     var body: some View {
-		NavigationStack{ //TODO: Revisar!!
+		NavigationStack{
 			HStack {
 				VStack(alignment: .center){
 					Image(mapElement!.image.replacingOccurrences(of: ".jpg", with: ""))
@@ -26,6 +26,7 @@ struct HousePreview: View {
 						.font(.subheadline)
 						.bold()
 				}
+				.padding(.top, 5)
 				
 			}
 			

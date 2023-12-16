@@ -31,11 +31,11 @@ struct AboutMeView: View {
 					
 				Text("Motivated by mobile development, she is studying a diploma in mobile design and development allowing her to find her passion for application development.")
 					.padding()
-				VStack{
+				VStack(alignment: .center, spacing: 5){
 					Text("Technologies:")
 						.font(.headline)
 						.padding()
-					HStack {
+					HStack(alignment: .center, spacing: 5){
 						
 						Text("• Swift")
 						Text("• SwiftUI")
@@ -46,18 +46,18 @@ struct AboutMeView: View {
 					Text("Hobbies:")
 						.font(.headline)
 						.padding()
-					HStack {
+					HStack(alignment: .center, spacing: 5){
 						
 						Text("• Watercolor painting")
 						Text("• Read books")
 						
 					}
-					HStack{
+					HStack(alignment: .center, spacing: 5){
 						Text("• Dog lover")
 						Text("• Videogames")
 					}
 				}
-				.frame(width: 320, alignment: .leading)
+				.frame(width: 340, alignment: .leading)
 				.padding(8)
 				.overlay( 
 					RoundedRectangle(cornerRadius: 20)
